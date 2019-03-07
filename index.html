@@ -1,1643 +1,1117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.0, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU gettext utilities: Top</title>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  <meta charset="utf-8">
-  <meta content="width=300, initial-scale=1" name="viewport">
-  <meta name="description" content="Gmail is email that&#39;s intuitive, efficient and useful. 15 GB of storage, less spam and mobile access.">
-  <meta name="google-site-verification" content="LrdTUW9psUAMbh4Ia074-BPEVmcpBxF6Gwf0MSgQXZs">
-  <title>Gmail</title>
-  <style>
-  @font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Open Sans Light'), local('OpenSans-Light'), url(//fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OUuhs.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url(//fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVZ0e.ttf) format('truetype');
-}
-  </style>
-  <style>
-  h1, h2 {
-  -webkit-animation-duration: 0.1s;
-  -webkit-animation-name: fontfix;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-delay: 0;
-  }
-  @-webkit-keyframes fontfix {
-  from {
-  opacity: 1;
-  }
-  to {
-  opacity: 1;
-  }
-  }
-  </style>
-<style>
-  html, body {
-  font-family: Arial, sans-serif;
-  background: #fff;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  position: absolute;
-  height: 100%;
-  min-width: 100%;
-  font-size: 13px;
-  color: #404040;
-  direction: ltr;
-  -webkit-text-size-adjust: none;
-  }
-  button,
-  input[type=button],
-  input[type=submit] {
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  }
-  a,
-  a:hover,
-  a:visited {
-  color: #427fed;
-  cursor: pointer;
-  text-decoration: none;
-  }
-  a:hover {
-  text-decoration: underline;
-  }
-  h1 {
-  font-size: 20px;
-  color: #262626;
-  margin: 0 0 15px;
-  font-weight: normal;
-  }
-  h2 {
-  font-size: 14px;
-  color: #262626;
-  margin: 0 0 15px;
-  font-weight: bold;
-  }
-  input[type=email],
-  input[type=number],
-  input[type=password],
-  input[type=tel],
-  input[type=text],
-  input[type=url] {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  display: inline-block;
-  height: 36px;
-  padding: 0 8px;
-  margin: 0;
-  background: #fff;
-  border: 1px solid #d9d9d9;
-  border-top: 1px solid #c0c0c0;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -moz-border-radius: 1px;
-  -webkit-border-radius: 1px;
-  border-radius: 1px;
-  font-size: 15px;
-  color: #404040;
-  }
-  input[type=email]:hover,
-  input[type=number]:hover,
-  input[type=password]:hover,
-  input[type=tel]:hover,
-  input[type=text]:hover,
-  input[type=url]:hover {
-  border: 1px solid #b9b9b9;
-  border-top: 1px solid #a0a0a0;
-  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  }
-  input[type=email]:focus,
-  input[type=number]:focus,
-  input[type=password]:focus,
-  input[type=tel]:focus,
-  input[type=text]:focus,
-  input[type=url]:focus {
-  outline: none;
-  border: 1px solid #4d90fe;
-  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-  }
-  input[type=checkbox],
-  input[type=radio] {
-  -webkit-appearance: none;
-  display: inline-block;
-  width: 13px;
-  height: 13px;
-  margin: 0;
-  cursor: pointer;
-  vertical-align: bottom;
-  background: #fff;
-  border: 1px solid #c6c6c6;
-  -moz-border-radius: 1px;
-  -webkit-border-radius: 1px;
-  border-radius: 1px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  }
-  input[type=checkbox]:active,
-  input[type=radio]:active {
-  background: #ebebeb;
-  }
-  input[type=checkbox]:hover {
-  border-color: #c6c6c6;
-  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  }
-  input[type=radio] {
-  -moz-border-radius: 1em;
-  -webkit-border-radius: 1em;
-  border-radius: 1em;
-  width: 15px;
-  height: 15px;
-  }
-  input[type=checkbox]:checked,
-  input[type=radio]:checked {
-  background: #fff;
-  }
-  input[type=radio]:checked::after {
-  content: '';
-  display: block;
-  position: relative;
-  top: 3px;
-  left: 3px;
-  width: 7px;
-  height: 7px;
-  background: #666;
-  -moz-border-radius: 1em;
-  -webkit-border-radius: 1em;
-  border-radius: 1em;
-  }
-  input[type=checkbox]:checked::after {
-  content: url(https://ssl.gstatic.com/ui/v1/menu/checkmark.png);
-  display: block;
-  position: absolute;
-  top: -6px;
-  left: -5px;
-  }
-  input[type=checkbox]:focus {
-  outline: none;
-  border-color: #4d90fe;
-  }
-  .stacked-label {
-  display: block;
-  font-weight: bold;
-  margin: .5em 0;
-  }
-  .hidden-label {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 0px;
-  width: 0px;
-  overflow: hidden;
-  visibility: hidden;
-  }
-  input[type=checkbox].form-error,
-  input[type=email].form-error,
-  input[type=number].form-error,
-  input[type=password].form-error,
-  input[type=text].form-error,
-  input[type=tel].form-error,
-  input[type=url].form-error {
-  border: 1px solid #dd4b39;
-  }
-  .error-msg {
-  margin: .5em 0;
-  display: block;
-  color: #dd4b39;
-  line-height: 17px;
-  }
-  .help-link {
-  background: #dd4b39;
-  padding: 0 5px;
-  color: #fff;
-  font-weight: bold;
-  display: inline-block;
-  -moz-border-radius: 1em;
-  -webkit-border-radius: 1em;
-  border-radius: 1em;
-  text-decoration: none;
-  position: relative;
-  top: 0px;
-  }
-  .help-link:visited {
-  color: #fff;
-  }
-  .help-link:hover {
-  color: #fff;
-  background: #c03523;
-  text-decoration: none;
-  }
-  .help-link:active {
-  opacity: 1;
-  background: #ae2817;
-  }
-  .wrapper {
-  position: relative;
-  min-height: 100%;
-  }
-  .content {
-  padding: 0 44px;
-  }
-  .main {
-  padding-bottom: 100px;
-  }
-  /* For modern browsers */
-  .clearfix:before,
-  .clearfix:after {
-  content: "";
-  display: table;
-  }
-  .clearfix:after {
-  clear: both;
-  }
-  /* For IE 6/7 (trigger hasLayout) */
-  .clearfix {
-  zoom:1;
-  }
-  .google-header-bar {
-  height: 71px;
-  border-bottom: 1px solid #e5e5e5;
-  overflow: hidden;
-  }
-  .header .logo {
-  background-image: url(https://ssl.gstatic.com/accounts/ui/logo_1x.png);
-  background-size: 116px 38px;
-  background-repeat: no-repeat;
-  margin: 17px 0 0;
-  float: left;
-  height: 38px;
-  width: 116px;
-  }
-  .header .logo-w {
-  background-image: url(https://ssl.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_112x36dp.png);
-  background-size: 112px 36px;
-  margin: 21px 0 0;
-  }
-  .header .secondary-link {
-  margin: 28px 0 0;
-  float: right;
-  }
-  .header .secondary-link a {
-  font-weight: normal;
-  }
-  .google-header-bar.centered {
-  border: 0;
-  height: 108px;
-  }
-  .google-header-bar.centered .header .logo {
-  float: none;
-  margin: 40px auto 30px;
-  display: block;
-  }
-  .google-header-bar.centered .header .secondary-link {
-  display: none
-  }
-  .google-footer-bar {
-  position: absolute;
-  bottom: 0;
-  height: 35px;
-  width: 100%;
-  border-top: 1px solid #e5e5e5;
-  overflow: hidden;
-  }
-  .footer {
-  padding-top: 7px;
-  font-size: .85em;
-  white-space: nowrap;
-  line-height: 0;
-  }
-  .footer ul {
-  float: left;
-  max-width: 80%;
-  min-height: 16px;
-  padding: 0;
-  }
-  .footer ul li {
-  color: #737373;
-  display: inline;
-  padding: 0;
-  padding-right: 1.5em;
-  }
-  .footer a {
-  color: #737373;
-  }
-  .lang-chooser-wrap {
-  float: right;
-  display: inline;
-  }
-  .lang-chooser-wrap img {
-  vertical-align: top;
-  }
-  .lang-chooser {
-  font-size: 13px;
-  height: 24px;
-  line-height: 24px;
-  }
-  .lang-chooser option {
-  font-size: 13px;
-  line-height: 24px;
-  }
-  .hidden {
-  height: 0px;
-  width: 0px;
-  overflow: hidden;
-  visibility: hidden;
-  display: none !important;
-  }
-  .banner {
-  text-align: center;
-  }
-  .card {
-  background-color: #f7f7f7;
-  padding: 20px 25px 30px;
-  margin: 0 auto 25px;
-  width: 304px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  }
-  .card > *:first-child {
-  margin-top: 0;
-  }
-  .rc-button,
-  .rc-button:visited {
-  display: inline-block;
-  min-width: 46px;
-  text-align: center;
-  color: #444;
-  font-size: 14px;
-  font-weight: 700;
-  height: 36px;
-  padding: 0 8px;
-  line-height: 36px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  -o-transition: all 0.218s;
-  -moz-transition: all 0.218s;
-  -webkit-transition: all 0.218s;
-  transition: all 0.218s;
-  border: 1px solid #dcdcdc;
-  background-color: #f5f5f5;
-  background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
-  background-image: -moz-linear-gradient(top,#f5f5f5,#f1f1f1);
-  background-image: -ms-linear-gradient(top,#f5f5f5,#f1f1f1);
-  background-image: -o-linear-gradient(top,#f5f5f5,#f1f1f1);
-  background-image: linear-gradient(top,#f5f5f5,#f1f1f1);
-  -o-transition: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  cursor: default;
-  }
-  .card .rc-button {
-  width: 100%;
-  padding: 0;
-  }
-  .rc-button.disabled,
-  .rc-button[disabled] {
-  opacity: .5;
-  filter: alpha(opacity=50);
-  cursor: default;
-  pointer-events: none;
-  }
-  .rc-button:hover {
-  border: 1px solid #c6c6c6;
-  color: #333;
-  text-decoration: none;
-  -o-transition: all 0.0s;
-  -moz-transition: all 0.0s;
-  -webkit-transition: all 0.0s;
-  transition: all 0.0s;
-  background-color: #f8f8f8;
-  background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
-  background-image: -moz-linear-gradient(top,#f8f8f8,#f1f1f1);
-  background-image: -ms-linear-gradient(top,#f8f8f8,#f1f1f1);
-  background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
-  background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-  }
-  .rc-button:active {
-  background-color: #f6f6f6;
-  background-image: -webkit-linear-gradient(top,#f6f6f6,#f1f1f1);
-  background-image: -moz-linear-gradient(top,#f6f6f6,#f1f1f1);
-  background-image: -ms-linear-gradient(top,#f6f6f6,#f1f1f1);
-  background-image: -o-linear-gradient(top,#f6f6f6,#f1f1f1);
-  background-image: linear-gradient(top,#f6f6f6,#f1f1f1);
-  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  }
-  .rc-button-submit,
-  .rc-button-submit:visited {
-  border: 1px solid #3079ed;
-  color: #fff;
-  text-shadow: 0 1px rgba(0,0,0,0.1);
-  background-color: #4d90fe;
-  background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
-  background-image: -moz-linear-gradient(top,#4d90fe,#4787ed);
-  background-image: -ms-linear-gradient(top,#4d90fe,#4787ed);
-  background-image: -o-linear-gradient(top,#4d90fe,#4787ed);
-  background-image: linear-gradient(top,#4d90fe,#4787ed);
-  }
-  .rc-button-submit:hover {
-  border: 1px solid #2f5bb7;
-  color: #fff;
-  text-shadow: 0 1px rgba(0,0,0,0.3);
-  background-color: #357ae8;
-  background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
-  background-image: -moz-linear-gradient(top,#4d90fe,#357ae8);
-  background-image: -ms-linear-gradient(top,#4d90fe,#357ae8);
-  background-image: -o-linear-gradient(top,#4d90fe,#357ae8);
-  background-image: linear-gradient(top,#4d90fe,#357ae8);
-  }
-  .rc-button-submit:active {
-  background-color: #357ae8;
-  background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
-  background-image: -moz-linear-gradient(top,#4d90fe,#357ae8);
-  background-image: -ms-linear-gradient(top,#4d90fe,#357ae8);
-  background-image: -o-linear-gradient(top,#4d90fe,#357ae8);
-  background-image: linear-gradient(top,#4d90fe,#357ae8);
-  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-  }
-  .rc-button-red,
-  .rc-button-red:visited {
-  border: 1px solid transparent;
-  color: #fff;
-  text-shadow: 0 1px rgba(0,0,0,0.1);
-  background-color: #d14836;
-  background-image: -webkit-linear-gradient(top,#dd4b39,#d14836);
-  background-image: -moz-linear-gradient(top,#dd4b39,#d14836);
-  background-image: -ms-linear-gradient(top,#dd4b39,#d14836);
-  background-image: -o-linear-gradient(top,#dd4b39,#d14836);
-  background-image: linear-gradient(top,#dd4b39,#d14836);
-  }
-  .rc-button-red:hover {
-  border: 1px solid #b0281a;
-  color: #fff;
-  text-shadow: 0 1px rgba(0,0,0,0.3);
-  background-color: #c53727;
-  background-image: -webkit-linear-gradient(top,#dd4b39,#c53727);
-  background-image: -moz-linear-gradient(top,#dd4b39,#c53727);
-  background-image: -ms-linear-gradient(top,#dd4b39,#c53727);
-  background-image: -o-linear-gradient(top,#dd4b39,#c53727);
-  background-image: linear-gradient(top,#dd4b39,#c53727);
-  }
-  .rc-button-red:active {
-  border: 1px solid #992a1b;
-  background-color: #b0281a;
-  background-image: -webkit-linear-gradient(top,#dd4b39,#b0281a);
-  background-image: -moz-linear-gradient(top,#dd4b39,#b0281a);
-  background-image: -ms-linear-gradient(top,#dd4b39,#b0281a);
-  background-image: -o-linear-gradient(top,#dd4b39,#b0281a);
-  background-image: linear-gradient(top,#dd4b39,#b0281a);
-  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-  }
-  .secondary-actions {
-  text-align: center;
-  }
-</style>
-<style media="screen and (max-width: 800px), screen and (max-height: 800px)">
-  .google-header-bar.centered {
-  height: 83px;
-  }
-  .google-header-bar.centered .header .logo {
-  margin: 25px auto 20px;
-  }
-  .card {
-  margin-bottom: 20px;
-  }
-</style>
-<style media="screen and (max-width: 580px)">
-  html, body {
-  font-size: 14px;
-  }
-  .google-header-bar.centered {
-  height: 73px;
-  }
-  .google-header-bar.centered .header .logo {
-  margin: 20px auto 15px;
-  }
-  .content {
-  padding-left: 10px;
-  padding-right: 10px;
-  }
-  .hidden-small {
-  display: none;
-  }
-  .card {
-  padding: 20px 15px 30px;
-  width: 270px;
-  }
-  .footer ul li {
-  padding-right: 1em;
-  }
-  .lang-chooser-wrap {
-  display: none;
-  }
-</style>
-<style media="screen and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (min-device-pixel-ratio: 1.5)">
-  .header .logo {
-  background-image: url(https://ssl.gstatic.com/accounts/ui/logo_2x.png);
-  }
-  .header .logo-w {
-  background-image: url(https://ssl.gstatic.com/images/branding/googlelogo/2x/googlelogo_color_112x36dp.png);
-  }
-</style>
-<style>
-  pre.debug {
-  font-family: monospace;
-  position: absolute;
-  left: 0;
-  margin: 0;
-  padding: 1.5em;
-  font-size: 13px;
-  background: #f1f1f1;
-  border-top: 1px solid #e5e5e5;
-  direction: ltr;
-  white-space: pre-wrap;
-  width: 90%;
-  overflow: hidden;
-  }
-</style>
-<style>
-  .banner h1 {
-  font-family: 'Open Sans', arial;
-  -webkit-font-smoothing: antialiased;
-  color: #555;
-  font-size: 42px;
-  font-weight: 300;
-  margin-top: 0;
-  margin-bottom: 20px;
-  }
-  .banner h2 {
-  font-family: 'Open Sans', arial;
-  -webkit-font-smoothing: antialiased;
-  color: #555;
-  font-size: 18px;
-  font-weight: 400;
-  margin-bottom: 20px;
-  }
-  .signin-card {
-  width: 274px;
-  padding: 40px 40px;
-  }
-  .signin-card .profile-img {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 10px;
-  display: block;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  }
-  .signin-card .profile-name {
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  margin: 10px 0 0;
-  min-height: 1em;
-  }
-  .signin-card .profile-email {
-  font-size: 16px;
-  text-align: center;
-  margin: 10px 0 20px 0;
-  min-height: 1em;
-  }
-  .signin-card input[type=email],
-  .signin-card input[type=password],
-  .signin-card input[type=text],
-  .signin-card input[type=submit] {
-  width: 100%;
-  display: block;
-  margin-bottom: 10px;
-  z-index: 1;
-  position: relative;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  }
-  .signin-card #Email,
-  .signin-card #Passwd,
-  .signin-card .captcha {
-  direction: ltr;
-  height: 44px;
-  font-size: 16px;
-  }
-  .signin-card #Email + .stacked-label {
-  margin-top: 15px;
-  }
-  .signin-card #reauthEmail {
-  display: block;
-  margin-bottom: 10px;
-  line-height: 36px;
-  padding: 0 8px;
-  font-size: 15px;
-  color: #404040;
-  line-height: 2;
-  margin-bottom: 10px;
-  font-size: 14px;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  }
-  .one-google p {
-  margin: 0 0 10px;
-  color: #555;
-  font-size: 14px;
-  text-align: center;
-  }
-  .one-google p.create-account,
-  .one-google p.switch-account {
-  margin-bottom: 60px;
-  }
-  .one-google .logo-strip {
-  background-repeat: no-repeat;
-  display: block;
-  margin: 10px auto;
-  background-image: url(https://ssl.gstatic.com/accounts/ui/wlogostrip_230x17_1x.png);
-  background-size: 230px 17px;
-  width: 230px;
-  height: 17px;
-  }
-</style>
-<style media="screen and (max-width: 800px), screen and (max-height: 800px)">
-  .banner h1 {
-  font-size: 38px;
-  margin-bottom: 15px;
-  }
-  .banner h2 {
-  margin-bottom: 15px;
-  }
-  .one-google p.create-account,
-  .one-google p.switch-account {
-  margin-bottom: 30px;
-  }
-  .signin-card #Email {
-  margin-bottom: 0;
-  }
-  .signin-card #Passwd {
-  margin-top: -1px;
-  }
-  .signin-card #Email.form-error,
-  .signin-card #Passwd.form-error {
-  z-index: 2;
-  }
-  .signin-card #Email:hover,
-  .signin-card #Email:focus,
-  .signin-card #Passwd:hover,
-  .signin-card #Passwd:focus {
-  z-index: 3;
-  }
-</style>
-<style media="screen and (max-width: 580px)">
-  .banner h1 {
-  font-size: 22px;
-  margin-bottom: 15px;
-  }
-  .signin-card {
-  width: 260px;
-  padding: 20px 20px;
-  margin: 0 auto 20px;
-  }
-  .signin-card .profile-img {
-  width: 72px;
-  height: 72px;
-  -moz-border-radius: 72px;
-  -webkit-border-radius: 72px;
-  border-radius: 72px;
-  }
-</style>
-<style media="screen and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (min-device-pixel-ratio: 1.5)">
-  .one-google .logo-strip {
-  background-image: url(https://ssl.gstatic.com/accounts/ui/wlogostrip_230x17_2x.png);
-  }
-</style>
-<style>
-  .remember .bubble-wrap {
-  position: absolute;
-  padding-top: 3px;
-  -o-transition: opacity .218s ease-in .218s;
-  -moz-transition: opacity .218s ease-in .218s;
-  -webkit-transition: opacity .218s ease-in .218s;
-  transition: opacity .218s ease-in .218s;
-  left: -999em;
-  opacity: 0;
-  width: 314px;
-  margin-left: -20px;
-  }
-  .remember:hover .bubble-wrap,
-  .remember input:focus ~ .bubble-wrap,
-  .remember .bubble-wrap:hover,
-  .remember .bubble-wrap:focus {
-  opacity: 1;
-  left: inherit;
-  }
-  .bubble-pointer {
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid #fff;
-  width: 0;
-  height: 0;
-  margin-left: 17px;
-  }
-  .bubble {
-  background-color: #fff;
-  padding: 15px;
-  margin-top: -1px;
-  font-size: 11px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  }
-  #stay-signed-in {
-  float: left;
-  }
-  #stay-signed-in-tooltip {
-  left: auto;
-  margin-left: -20px;
-  padding-top: 3px;
-  position: absolute;
-  top: 0;
-  visibility: hidden;
-  width: 314px;
-  z-index: 1;
-  }
-  .dasher-tooltip {
-  top: 380px;
-  }
-</style>
-<style media="screen and (max-width: 800px), screen and (max-height: 800px)">
-  .dasher-tooltip {
-  top: 340px;
-  }
-</style>
-<style>
-  .jfk-tooltip {
-  background-color: #fff;
-  border: 1px solid;
-  color: #737373;
-  font-size: 12px;
-  position: absolute;
-  z-index: 800 !important;
-  border-color: #bbb #bbb #a8a8a8;
-  padding: 16px;
-  width: 250px;
-  }
- .jfk-tooltip h3 {
-  color: #555;
-  font-size: 12px;
-  margin: 0 0 .5em;
-  }
- .jfk-tooltip-content p:last-child {
-  margin-bottom: 0;
-  }
-  .jfk-tooltip-arrow {
-  position: absolute;
-  }
-  .jfk-tooltip-arrow .jfk-tooltip-arrowimplbefore,
-  .jfk-tooltip-arrow .jfk-tooltip-arrowimplafter {
-  display: block;
-  height: 0;
-  position: absolute;
-  width: 0;
-  }
-  .jfk-tooltip-arrow .jfk-tooltip-arrowimplbefore {
-  border: 9px solid;
-  }
-  .jfk-tooltip-arrow .jfk-tooltip-arrowimplafter {
-  border: 8px solid;
-  }
-  .jfk-tooltip-arrowdown {
-  bottom: 0;
-  }
-  .jfk-tooltip-arrowup {
-  top: -9px;
-  }
-  .jfk-tooltip-arrowleft {
-  left: -9px;
-  top: 30px;
-  }
-  .jfk-tooltip-arrowright {
-  right: 0;
-  top: 30px;
-  }
-  .jfk-tooltip-arrowdown .jfk-tooltip-arrowimplbefore,.jfk-tooltip-arrowup .jfk-tooltip-arrowimplbefore {
-  border-color: #bbb transparent;
-  left: -9px;
-  }
-  .jfk-tooltip-arrowdown .jfk-tooltip-arrowimplbefore {
-  border-color: #a8a8a8 transparent;
-  }
-  .jfk-tooltip-arrowdown .jfk-tooltip-arrowimplafter,.jfk-tooltip-arrowup .jfk-tooltip-arrowimplafter {
-  border-color: #fff transparent;
-  left: -8px;
-  }
-  .jfk-tooltip-arrowdown .jfk-tooltip-arrowimplbefore {
-  border-bottom-width: 0;
-  }
-  .jfk-tooltip-arrowdown .jfk-tooltip-arrowimplafter {
-  border-bottom-width: 0;
-  }
-  .jfk-tooltip-arrowup .jfk-tooltip-arrowimplbefore {
-  border-top-width: 0;
-  }
-  .jfk-tooltip-arrowup .jfk-tooltip-arrowimplafter {
-  border-top-width: 0;
-  top: 1px;
-  }
-  .jfk-tooltip-arrowleft .jfk-tooltip-arrowimplbefore,
-  .jfk-tooltip-arrowright .jfk-tooltip-arrowimplbefore {
-  border-color: transparent #bbb;
-  top: -9px;
-  }
-  .jfk-tooltip-arrowleft .jfk-tooltip-arrowimplafter,
-  .jfk-tooltip-arrowright .jfk-tooltip-arrowimplafter {
-  border-color:transparent #fff;
-  top:-8px;
-  }
-  .jfk-tooltip-arrowleft .jfk-tooltip-arrowimplbefore {
-  border-left-width: 0;
-  }
-  .jfk-tooltip-arrowleft .jfk-tooltip-arrowimplafter {
-  border-left-width: 0;
-  left: 1px;
-  }
-  .jfk-tooltip-arrowright .jfk-tooltip-arrowimplbefore {
-  border-right-width: 0;
-  }
-  .jfk-tooltip-arrowright .jfk-tooltip-arrowimplafter {
-  border-right-width: 0;
-  }
-  .jfk-tooltip-closebtn {
-  background: url("//ssl.gstatic.com/ui/v1/icons/common/x_8px.png") no-repeat;
-  border: 1px solid transparent;
-  height: 21px;
-  opacity: .4;
-  outline: 0;
-  position: absolute;
-  right: 2px;
-  top: 2px;
-  width: 21px;
-  }
-  .jfk-tooltip-closebtn:focus,
-  .jfk-tooltip-closebtn:hover {
-  opacity: .8;
-  cursor: pointer;
-  }
-  .jfk-tooltip-closebtn:focus {
-  border-color: #4d90fe;
-  }
-</style>
-<style media="screen and (max-width: 580px)">
-  .jfk-tooltip {
-  display: none;
-  }
-</style>
+<meta name="description" content="GNU gettext utilities: Top">
+<meta name="keywords" content="GNU gettext utilities: Top">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="Program-Index.html#Program-Index" rel="index" title="Program Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="../dir/index.html" rel="up" title="(dir)">
+<link href="Introduction.html#Introduction" rel="next" title="Introduction">
 <style type="text/css">
-.captcha-box {
-  background: #fff;
-  margin: 0 0 10px;
-  overflow: hidden;
-  padding: 10px;
-}
-.captcha-box .captcha-img {
-  text-align: center;
-}
-.captcha-box .captcha-label {
-  font-weight: bold;
-  display: block;
-  margin: .5em 0;
-}
-.captcha-box .captcha-msg {
-  color: #999;
-  display: block;
-  position: relative;
-}
-.captcha-box .captcha-msg .accessibility-logo {
-  float: right;
-  border: 0;
-}
-.captcha-box .audio-box {
-  position: absolute;
-  top: 0;
-}
-</style>
-<style>
-.chromiumsync-custom-content {
-  padding-top: 20px;
-  margin-bottom: 0;
-}
-.form-panel {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);
-  width: 100%;
-}
-.form-panel.first {
-  z-index: 2;
-}
-.form-panel.second {
-  z-index: 1;
-}
-.shift-form .form-panel.first {
-  z-index: 1;
-}
-.shift-form .form-panel.second {
-  z-index: 2;
-}
-.slide-in,
-.slide-out {
-  display: block;
-  -webkit-transition-property: -webkit-transform, opacity;
-  -moz-transition-property: -moz-transform, opacity;
-  -ms-transition-property: -ms-transform, opacity;
-  -o-transition-property: -o-transform, opacity;
-  transition-property: transform, opacity;
-  -webkit-transition-duration: 0.1s;
-  -moz-transition-duration: 0.1s;
-  -ms-transition-duration: 0.1s;
-  -o-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  -moz-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  -ms-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.slide-out {
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-.shift-form .slide-out {
-  opacity: 0;
-  -webkit-transform: translate3d(-120%, 0, 0);
-  -moz-transform: translate3d(-120%, 0, 0);
-  -ms-transform: translate3d(-120%, 0, 0);
-  -o-transform: translate3d(-120%, 0, 0);
-  transform: translate3d(-120%, 0, 0);
-}
-.slide-in {
-  -webkit-transform: translate3d(120%, 0, 0);
-  -moz-transform: translate3d(120%, 0, 0);
-  -ms-transform: translate3d(120%, 0, 0);
-  -o-transform: translate3d(120%, 0, 0);
-  transform: translate3d(120%, 0, 0);
-}
-.shift-form .slide-in {
-  opacity: 1;
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-.error-msg {
-  -webkit-transition: max-height 0.3s, opacity 0.3s 0s steps(10, end);
-  -moz-transition: max-height 0.3s, opacity 0.3s 0s steps(10, end);
-  -ms-transition: max-height 0.3s, opacity 0.3s 0s steps(10, end);
-  -o-transition: max-height 0.3s, opacity 0.3s 0s steps(10, end);
-  transition: max-height 0.3s, opacity 0.3s 0s steps(10, end);
-  height: auto;
-  max-height: 0;
-  opacity: 0;
-}
-.has-error .error-msg {
-  max-height: 3.5em;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  opacity: 1;
-  visibility: visible;
-}
-.back-arrow {
-  position: absolute;
-  top: 37px;
-  width: 24px;
-  height: 24px;
-  display: none;
-  cursor: pointer;
-}
-.back-arrow {
-  border-style: none;
-}
-.shift-form.back-arrow {
-  display: block;
-}
-.back-arrow img {
-  display: block;
-}
-#link-signup {
-  text-align: center;
-  font-size: 14px;
-}
-.shift-form #link-signup{
-  display: none;
-}
-#link-signin-different {
-  display: none;
-  text-align: center;
-  font-size: 14px;
-}
-.shift-form #link-signin-different {
-  display: block;
-}
-.signin-card #profile-name {
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  margin: 0;
-  min-height: 1em;
-}
-.signin-card.no-name #profile-name {
-  display: none;
-}
-.signin-card.no-name #email-display {
-  line-height: initial;
-  margin-bottom: 16px;
-}
-.signin-card #email-display {
-  display: block;
-  padding: 0px 8px;
-  color: rgb(64, 64, 64);
-  line-height: 2;
-  margin-bottom: 10px;
-  font-size: 14px;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.signin-card #Email {
-  margin-top: 16px;
-}
-.need-help {
-  float: right;
-  text-align: right;
-}
-.form-panel {
-  width: 274px;
-}
-#gaia_firstform {
-  z-index: 2;
-}
-.signin-card {
-  position: relative;
-  overflow: hidden;
-}
-.signin-card #profile-name {
-  color: #000;
-}
-.circle-mask {
-  display: block;
-  height: 96px;
-  width: 96px;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 100;
-  margin-bottom: 10px;
-}
-.circle {
-  -webkit-transition-property: -webkit-transform;
-  -moz-transition-property: -moz-transform;
-  -ms-transition-property: -ms-transform;
-  -o-transition-property: -o-transform;
-  transition-property: transform;
-  -webkit-transition-timing-function: cubic-bezier(.645,.045,.355,1);
-  -moz-transition-timing-function: cubic-bezier(.645,.045,.355,1);
-  -ms-transition-timing-function: cubic-bezier(.645,.045,.355,1);
-  -o-transition-timing-function: cubic-bezier(.645,.045,.355,1);
-  transition-timing-function: cubic-bezier(.645,.045,.355,1);
-}
-.circle {
-  position: absolute;
-  z-index: 101;
-  height: 96px;
-  width: 96px;
-  border-radius: 50%;
-  opacity: 0.99;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.main {
-  overflow: hidden;
-}
-.card-mask-wrap {
-  position: relative;
-  width: 360px;
-  margin: 0 auto;
-  z-index: 1;
-}
-.dasher-tooltip {
-  position: absolute;
-  left: 50%;
-  margin-left: 150px;
-}
-.dasher-tooltip .tooltip-pointer {
-  margin-top: 15px;
-}
-.dasher-tooltip p {
-  margin-top: 0;
-}
-.dasher-tooltip p span {
-  display: block;
-}
-.card {
-  margin-bottom: 0;
-}
-.one-google {
-  padding-top: 27px;
-}
-#canvas {
-  -webkit-transition: opacity 0.075s;
-  -moz-transition: opacity 0.075s;
-  -ms-transition: opacity 0.075s;
-  -o-transition: opacity 0.075s;
-  transition: opacity 0.075s;
-  opacity: 0.01;
-}
-.shift-form #canvas {
-  opacity: 0.99;
-}
-.label {
-  color: #404040;
-}
-#account-chooser-link {
-  -webkit-transition: opacity 0.3s;
-  -moz-transition: opacity 0.3s;
-  -ms-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-}
-.input-wrapper {
-  position: relative;
-}
-.google-footer-bar {
-  z-index: 2;
-}
-</style>
-<style media="screen and (max-width: 580px)">
-.back-arrow {
-  top: 17px;
-}
-.circle-mask {
-  height: 72px;
-  width: 72px;
-  background-size: 72px;
-}
-.circle {
-  height: 72px;
-  width: 72px;
-}
-#canvas {
-  height: 72px;
-  width: 72px;
-}
-.form-panel {
-  width: 256px;
-}
-.card-mask-wrap {
-  width: 300px;
-}
-.signin-card {
-  width: 256px;
-}
-.signin-card #EmailFirst {
-  margin-top: 15px;
-}
-.one-google {
-  padding-top: 22px;
-}
-</style>
-  </head>
-  <body>
-  <div class="wrapper">
-  <div  class="google-header-bar  centered">
-  <div class="header content clearfix">
-  <div class="logo logo-w" aria-label="Google"></div>
-  </div>
-  </div>
-  <div  class="main content clearfix">
-<div class="banner">
-<h1>
-  One account. All of Google.
-</h1>
-  <h2 class="hidden-small">
-  Sign in to continue to Gmail
-  </h2>
-</div>
-<div class="main-content 
-  
-  
-    no-name
-  
-  
-  
-">
-<div  class="card signin-card
-  
-    pre-shift
-  
-  
-  
-   no-name">
-  <img  class="circle-mask"
-      
-        
-          src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        
-      >
-  <form novalidate method="post" action="https://accounts.google.com/signin/v1/lookup" id="gaia_loginform">
-  <input name="Page" type="hidden" value="PasswordSeparationSignIn">
-  <input type="hidden" name="" value="">
-  <input type="hidden" name="gxf" value="AFoagUVtsMNlvngjRxfJE-vj7WvbpLKH5w:1547455340735">
-  <input type="hidden" name="continue" value="https://mail.google.com/mail/">
-  <input type="hidden" name="service" value="mail">
-  <input type="hidden" name="rm" value="false">
-  <input type="hidden" name="ltmpl" value="default">
-  <input type="hidden" name="scc" value="1">
-  <input type="hidden" name="ss" value="1">
-  <input type="hidden" name="osid" value="1">
-  <input type="hidden" name="emr" value="1">
-  <input id="profile-information" name="ProfileInformation" type="hidden" value="">
-  <input id="session-state" name="SessionState" type="hidden" value="AEThLlxYdfYQAOd-5j_0rvZlsDsTkBNsRpsu6nTkgAOQxwpE2ONe0ak5M7EvqHPhwLZnH8SiAe4TBtazVbXtmRVYz-3QYQNZzIxV6xvOrXczrGTDpBERGG4EWZnaDaHrsKxhNaoqWHcOzTTowzxBMm8j4YNnz7dx4HsBRnmDt4fXB8yjUhh1z3Y">
-  <input name="flowName" type="hidden" value="GlifWebSignIn">
-  <input type="hidden" id="_utf8" name="_utf8" value="&#9731;"/>
-  <input type="hidden" name="bgresponse" id="bgresponse" value="js_disabled">
-  <div class="form-panel first valid" id="gaia_firstform">
-  <div  class="slide-out ">
-  <div class="input-wrapper focused">
-  <div id="identifier-shown">
-  <div>
-  <label  class="hidden-label" for="Email">
-  Enter your email</label>
-  <input  id="Email" type="email" value="" spellcheck="false"
-                   name="Email"
-                   
-                     placeholder="Email or phone"
-                   
-                   
-                   
-                   >
-  <input id="Passwd-hidden" type="password" spellcheck="false" class="hidden">
-  </div>
-  </div>
-  <span role="alert" class="error-msg" id="errormsg_0_Email"></span>
-  </div>
-<input id="next" name="signIn" class="rc-button rc-button-submit" type="submit" value="Next">
-  <a  class="need-help"
-        href="https://accounts.google.com/signin/usernamerecovery?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&amp;service=mail&amp;ss=1&amp;scc=1&amp;rm=false&amp;osid=1&amp;hl=en-GB">
-  Find my account
-  </a>
-  </div>
-  </div>
-  </form>
-</div>
-  <div  class="card-mask-wrap
-    
-        
-     no-name">
-  <div class="card-mask">
-  <div class="one-google">
-  <p class="create-account">
-  <span id="link-signin-different">
-  <a href="https://accounts.google.com/AccountChooser?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&amp;service=mail&amp;rm=false&amp;ltmpl=default&amp;scc=1&amp;ss=1&amp;osid=1&amp;emr=1">
-  Sign in with a different account
-  </a>
-  </span>
-  <span id="link-signup">
-  <a  href="https://accounts.google.com/SignUp?service=mail&amp;continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&amp;ltmpl=default">
-  Create account
-  </a>
-  </span>
-  </p>
-<p class="tagline">
-  One Google account for everything Google
-</p>
-<div class="logo-strip"></div>
-  </div>
-  </div>
-  </div>
-</div>
-  </div>
-  <div  class="google-footer-bar">
-  <div class="footer content clearfix">
-  <ul id="footer-list">
-  <li>
-  <a href="https://www.google.com/intl/en-GB/about" target="_blank">
-  About Google
-  </a>
-  </li>
-  <li>
-  <a href="https://accounts.google.com/TOS?loc=IN&hl=en-GB&privacy=true" target="_blank">
-  Privacy
-  </a>
-  </li>
-  <li>
-  <a href="https://accounts.google.com/TOS?loc=IN&hl=en-GB" target="_blank">
-  Terms
-  </a>
-  </li>
-  <li>
-  <a href="http://www.google.com/support/accounts?hl=en-GB" target="_blank">
-  Help
-  </a>
-  </li>
-  </ul>
-  </div>
-</div>
-  </div>
-<script type="text/javascript" nonce="AnFQTdctDyTbBO0eE2XNjw">
-  var gaia_attachEvent = function(element, event, callback) {
-  if (element && element.addEventListener) {
-  element.addEventListener(event, callback, false);
-  } else if (element && element.attachEvent) {
-  element.attachEvent('on' + event, callback);
-  }
-  };
-  (function() {
-  var gaia_hideNavBar = function() {
-  setTimeout(function() {
-  window.scrollTo(0, 1);
-  }, 0);
-  };
-  gaia_attachEvent(window, 'load', gaia_hideNavBar);
-  })();
-</script>
-  <script type="text/javascript" nonce="AnFQTdctDyTbBO0eE2XNjw">/* Anti-spam. Want to say hello? Contact (base64) Ym90Z3VhcmQtY29udGFjdEBnb29nbGUuY29t */Function('var P=false,X=function(R,l,L){if(0>=R.S||1<R.P||!R.l&&0<l||0!=document.hidden||R.F()-R.I<R.S-L)return false;return!(((l=(R.X=true,R.v(94))-l,y)(R,94,R.K.length),R).f.push([3,l]),0)},n=function(R,l,L,W){for(W=l-1,L=[];0<=W;W--)L[l-1-W]=R>>8*W&255;return L},z=function(R,l,L){if(l=typeof R,"object"==l)if(R){if(R instanceof Array)return"array";if(R instanceof Object)return l;if("[object Window]"==(L=Object.prototype.toString.call(R),L))return"object";if("[object Array]"==L||"number"==typeof R.length&&"undefined"!=typeof R.splice&&"undefined"!=typeof R.propertyIsEnumerable&&!R.propertyIsEnumerable("splice"))return"array";if("[object Function]"==L||"undefined"!=typeof R.call&&"undefined"!=typeof R.propertyIsEnumerable&&!R.propertyIsEnumerable("call"))return"function"}else return"null";else if("function"==l&&"undefined"==typeof R.call)return"object";return l},q=function(R,l){return R[l]<<24|R[l+1]<<16|R[l+2]<<8|R[l+3]},I,T=function(R,l,L,W,b){for(l=[],W=L=0;W<R.length;W++)b=R.charCodeAt(W),128>b?l[L++]=b:(2048>b?l[L++]=b>>6|192:(55296==(b&64512)&&W+1<R.length&&56320==(R.charCodeAt(W+1)&64512)?(b=65536+((b&1023)<<10)+(R.charCodeAt(++W)&1023),l[L++]=b>>18|240,l[L++]=b>>12&63|128):l[L++]=b>>12|224,l[L++]=b>>6&63|128),l[L++]=b&63|128);return l},H=function(R,l){R.f.splice(0,0,l)},c=function(R,l){try{U(this,R,l)}catch(L){h(this,L)}},E=((c.prototype.Z="caller",c.prototype.k0=function(R,l,L){if(3==R.length){for(L=0;3>L;L++)l[L]+=R[L];for(R=[13,8,13,(L=0,12),16,5,3,10,15];9>L;L++)l[3](l,L%3,R[L])}},(c.prototype.A=function(R,l){if(this.D)return R=R?this.D().shift():this.c().shift(),this.D().length||this.c().length||(this.c=this.D=void 0,this.P--),R;if(R=this.v(94),!(R in this.K))throw S(this,31),this.w;return void 0==this.U&&(this.U=q(this.K,R-4),this.R=void 0),this.R!=R>>3&&(this.R=R>>3,l=[0,0,0,this.v(125)],this.T=x(this.U,this.R,l)),y(this,94,R+1),this.K[R]^this.T[R%8]},c).prototype).f1=(c.prototype.w={},function(R,l,L,W,b,Z){for(Z=W=(L=[],0);Z<R.length;Z++)for(W+=l,b=b<<l|R[Z];7<W;)W-=8,L.push(b>>W&255);return L}),function(R,l,L,W,b,Z){return function(){var D=W&1,B=[6,l,L,void 0,b,Z,arguments];if(W&2)var v=f(R,true,(H(R,B),false),false);else D&&R.f.length?H(R,B):D?(H(R,B),f(R,true,false,false)):v=Q(R,B);return v}}),Q=function(R,l,L,W,b){if((L=(R.l=false,l)[0],1)==L)R.s=25,R.o(l);else if(2==L){W=l[3],L=l[1];try{b=R.o(l)}catch(Z){h(R,Z),b=R.L}(L&&L(b),W).push(b)}else if(3==L)R.o(l);else if(4==L)R.o(l);else if(5==L)(0,l[1])();else if(6==L)return b=l[2],y(R,78,l[6]),y(R,231,b),R.o(l)},U=((c.prototype.rl=function(R,l,L,W){for(;L--;)94!=L&&138!=L&&l.a[L]&&(l.a[L]=l[W](l[R](L),this));l[R]=this},c).prototype.O=(c.prototype.J="toString",function(R,l,L,W,b,Z){if(this.L)return this.L;try{Z=[],b=[],W=!!R,H(this,[1,b,l]),H(this,[2,R,b,Z]),f(this,false,W,true),L=Z[0]}catch(D){h(this,D),L=this.L,R&&R(L)}return L}),c.prototype.B=function(R,l,L,W){(L=(W=(L=(R&=(l=R&4,3),this).A(),this).A(),this).v(L),l)&&(L=T((""+L).replace(/\\r\\n/g,"\\n"))),R&&G(this,W,n(L.length,2)),G(this,W,L)},function(R,l,L,W,b){for((R.W=(R.X=false,function(R,l,L,W,b,t){return((t=(b=(W=(L=this,function(){return W[L.j+(b[L.Z]===l)-!t[L.Z]]}),function(){return W()}),L).o,b)[L.J]=function(R){W[L.i]=R},b)[L.J](R),R=b}),(R.c=(W=[],R.D=void 0,void 0),R).P=0,R.V=[],R.$=function(R,l,L){return(l=(L=function(){return R},function(){return L()}),l)[this.J]=function(Z){R=Z},l},(b=0,R).S=(R.s=25,0),R).l=false;128>b;b++)W[b]=String.fromCharCode(b);(y(R,53,((y(R,56,[(y(((y(R,140,(y(R,160,(y((((y(R,((y(R,108,(y(((y((y((y(R,175,(y(R,49,(b=(y(R,((y(R,214,(y((y(R,184,(y((y(R,(y(R,(y(R,(y(R,(y((y((y(R,189,(y((((y((y(R,(R.C=(y((y((y(R,((R.a=[],y)(R,94,0),138),0),R),18,function(R,l,L){0!=(L=(l=R.A(),R.A()),R).v(l)&&y(R,94,R.v(L))}),R),5,[]),y(R,42,function(R,l,L){(L=(l=R.A(),R.A()),y)(R,L,""+R.v(l))}),[]),163),257),R),143,0),y)(R,19,function(R,l,L,W,b,t){if(!X(R,1,255)){if("object"==(R=(W=(L=(l=(b=(W=(L=(l=R.A(),R).A(),R).A(),R.A()),R.v(l)),R.v(L)),R).v(W),R.v(b)),z)(l)){for(t in b=[],l)b.push(t);l=b}for(b=(t=l.length,0);b<t;b+=W)L(l.slice(b,b+W),R)}}),R.M=((window.performance||{}).timing||{}).navigationStart||0,y)(R,33,2048),R),3,[]),R)),R),215,function(R,l,L,W){y(R,(W=(L=(l=R.A(),R.A()),R).A(),W),R.v(l)>>L)}),R),37,function(R,l,L){y((l=(L=(l=R.A(),R.A()),R.v(l)),R),L,z(l))}),76),function(R,l){X(R,1,5)||(l=g(R),y(R,l.G,l.N.apply(l.g,l.Y)))}),241),function(R){k(R,1)}),y(R,203,function(R,l,L,W){(W=(L=(l=R.A(),R.A()),R).A(),R.v(l))[R.v(L)]=R.v(W)}),44),function(R){m(R,2)}),231),{}),R),24,function(R){k(R,4)}),function(R,l){l=R.v(R.A()),p(R,l)})),R),47,function(R,l,L,W,b){for(W=(l=R.A(),L=e(R),[]),b=0;b<L;b++)W.push(R.A());y(R,l,W)}),function(R){m(R,1)})),y)(R,13,J),y(R,129,function(R,l,L,W){W=(L=(l=R.A(),R).A(),R.A()),y(R,W,(R.v(l)in R.v(L))+0)}),242),function(R,l,L,W){y((W=(L=(l=R.A(),R).A(),R.A()),R),W,R.v(l)||R.v(L))}),L).m||function(){},function(R,l,L,b,K,t,V){if((b=(l=R.A(),L=e(R),""),R).a[145])for(K=R.v(145),t=0,V=K.length;L--;)t=(t+e(R))%V,b+=W[K[t]];else for(;L--;)b+=W[R.A()];y(R,l,b)})),function(R,l,L,W){l=(W=(L=(l=R.A(),R).A(),R.A()),R).v(l)==R.v(L),y(R,W,+l)})),R),154,0),R),178,function(R,l){(R=(l=R.A(),R.v(l)),R)[0].removeEventListener(R[1],R[2],false)}),y)(R,207,function(R,l,L){X(R,1,5)||(l=R.A(),L=R.A(),y(R,L,function(R){return eval(R)}(R.v(l))))}),R),248,function(R){R.B(4)}),function(R,l,L,W){if(l=R.C.pop()){for(L=R.A();0<L;L--)W=R.A(),l[W]=R.a[W];((l[3]=R.a[3],l)[33]=R.a[33],R).a=l}else y(R,94,R.K.length)})),y)(R,141,function(){}),R.K1=function(R,l){((l.push(R[0]<<24|R[1]<<16|R[2]<<8|R[3]),l).push(R[4]<<24|R[5]<<16|R[6]<<8|R[7]),l).push(R[8]<<24|R[9]<<16|R[10]<<8|R[11])},84),function(R,l,L){(l=(L=(l=R.A(),R).A(),R.a)[l]&&R.v(l),y)(R,L,l)}),R.f=[],y)(R,45,0),y)(R,183,function(R,l,L,W,b){0!==(W=(L=(L=(l=R.A(),R.A()),W=R.A(),l=R.v(l),b=R.v(R.A()),R.v(L)),R.v(W)),l)&&(W=E(R,W,b,1,l,L),l.addEventListener(L,W,P),y(R,45,[l,L,W]))}),y(R,107,F(4)),R),116,function(R,l,L,W,b,t,V,d,O,A,w,C,r){for(A=(d=(V=(t=(W=(l=R.A(),L=0),b=function(l,b){for(;W<l;)L|=R.A()<<W,W+=8;return L>>=(b=L&(1<<(W-=l,l))-1,l),b},b(3))+1,b(5)),[]),O=0);A<V;A++)w=b(1),d.push(w),O+=w?0:1;for(A=(C=[],O=(O-1).toString(2).length,0);A<V;A++)d[A]||(C[A]=b(O));for(A=0;A<V;A++)d[A]&&(C[A]=R.A());for(r=(A=t,[]);A--;)r.push(R.v(R.A()));y(R,l,function(R,l,L,W,b){for(L=[],R.P++,l=[],W=0;W<V;W++){if(!(b=C[W],d[W])){for(;b>=l.length;)l.push(R.A());b=l[b]}L.push(b)}R.c=(R.D=R.W(r.slice(),R.A),R.W(L,R.A))})}),function(R,l,L,W,b){y((L=(b=(W=(L=(l=R.A(),R).A(),R.v(R.A())),R.v(R.A())),R.v(L)),R),l,E(R,L,W,b))})),function(R,l,L){L=(l=R.A(),R).A(),y(R,L,R.v(L)+R.v(l))})),y)(R,185,function(R){m(R,4)}),R),125,0),165),0,0]),y)(R,246,function(R,l,L,W){(l=(L=(L=(l=R.A(),R.A()),W=R.A(),R).v(L),R).v(l),y)(R,W,l[L])}),function(R,l,L,W,b,t,V){X(R,1,5)||(l=g(R),L=l.Y,b=l.N,W=l.g,V=L.length,0==V?t=new W[b]:1==V?t=new W[b](L[0]):2==V?t=new W[b](L[0],L[1]):3==V?t=new W[b](L[0],L[1],L[2]):4==V?t=new W[b](L[0],L[1],L[2],L[3]):S(R,22),y(R,l.G,t))})),l&&"!"==l.charAt(0))?(R.L=l,b()):(R.K=[],L=!!L.m,H(R,[4,l]),H(R,[5,b]),f(R,false,L,true))}),S=((c.prototype.i=36,c).prototype.j=35,function(R,l,L,W,b){y(R,((L=(W=((b=R.v(138),l=[l,b>>8&255,b&255],void 0!=W)&&l.push(W),0==R.v(3).length&&(R.a[3]=void 0,y(R,3,l)),""),L&&(L.message&&(W+=L.message),L.stack&&(W+=":"+L.stack)),R).v(33),3)<L&&(W=W.slice(0,L-3),L-=W.length+3,W=T(W.replace(/\\r\\n/g,"\\n")),G(R,107,n(W.length,2).concat(W),12)),33),L)}),f=function(R,l,L,W,b){if(0!=R.f.length){if(b=0==R.P)R.I=R.F();return L=u(R,L,W),b&&(b=R.F()-R.I,b<(l?10:0)||0>=R.s--||R.V.push(254>=b?b:254)),L}},p=(c.prototype.ar=function(R,l,L,W){try{W=R[(l+2)%3],R[l]=R[l]-R[(l+1)%3]-W^(1==l?W<<L:W>>>L)}catch(b){throw b;}},function(R,l){y(((R.C.push(R.a.slice()),R.a)[94]=void 0,R),94,l)}),g=function(R,l,L,W,b,Z){for(Z=(b=(W=(((L=(l={},R.A()),l).G=R.A(),l).Y=[],R).A()-1,R).A(),0);Z<W;Z++)l.Y.push(R.A());for((l.N=R.v(L),l).g=R.v(b);W--;)l.Y[W]=R.v(l.Y[W]);return l},h=function(R,l){R.L=("E:"+l.message+":"+l.stack).slice(0,2048)},u=function(R,l,L,W,b){for(;R.f.length;){if(L=L&&l)R.S&&R.X?(L=0!=document.hidden?false:true,R.X=false):L=false;if(L){R.Ap((b=R,function(){f(b,false,l,false)}));break}W=(W=(L=true,R).f.pop(),Q)(R,W)}return W},x=function(R,l,L,W){try{for(W=0;79669387488!=W;)R+=(l<<4^l>>>5)+l^W+L[W&3],W+=2489668359,l+=(R<<4^R>>>5)+R^W+L[W>>>11&3];return[R>>>24,R>>16&255,R>>8&255,R&255,l>>>24,l>>16&255,l>>8&255,l&255]}catch(b){throw b;}},F=(c.prototype.o=function(R,l,L,W,b){if((l=R[0],4)==l){R=R[1];try{for(W=(L=atob(R),R=[],l=0);W<L.length;W++)b=L.charCodeAt(W),255<b&&(R[l++]=b&255,b>>=8),R[l++]=b;this.K=R}catch(Z){S(this,17,Z)}M(this)}else if(1==l)L=R[1],L.push(this.v(56).length,this.v(107).length,this.v(5).length,this.v(33)),y(this,231,R[2]),this.a[62]&&N(this,this.v(62));else{if(2==l){if(4<((4<(l=((b=(R=n((L=R[2],this).v(56).length+2,2),this.v(3)),0<b.length)&&G(this,56,n(b.length,2).concat(b),15),b=this.v(143)&511,b-=this.v(56).length+5,this).v(107),l).length&&(b-=l.length+3),0<b)&&G(this,56,n(b,2).concat(F(b)),10),l.length)&&G(this,56,n(l.length,2).concat(l),153),b=F(2).concat(this.v(56)),b[1]=b[0]^3,b[3]=b[1]^R[0],b[4]=b[1]^R[1],R=window.btoa){for(W=0,l="";W<b.length;W+=8192)l+=String.fromCharCode.apply(null,b.slice(W,W+8192));R=R(l).replace(/\\+/g,"-").replace(/\\//g,"_").replace(/=/g,"")}else R=void 0;if(R)R="!"+R;else for(l=0,R="";l<b.length;l++)W=b[l][this.J](16),1==W.length&&(W="0"+W),R+=W;return(((b=R,this).v(56).length=L[0],this).v(107).length=L[1],this).v(5).length=L[2],y(this,33,L[3]),b}if(3==l)N(this,R[1]);else if(6==l)return N(this,R[1])}},((c.prototype.h=false,c).prototype.vV=function(R,l,L){return l^=l<<13,l^=l>>17,(l=(l^l<<5)&L)||(l=1),R^l},c.prototype).F=(window.performance||{}).now?function(){return this.M+(window.performance.now()|0)}:function(){return+new Date},function(R,l){for(l=[];R--;)l.push(255*Math.random()|0);return l}),J=this,e=(c.prototype.Ap=(c.prototype.Da=function(R,l,L,W,b){for(b=W=0;b<R.length;b++)W+=R.charCodeAt(b),W+=W<<10,W^=W>>6;return W=(R=(W+=W<<3,W^=W>>11,W)+(W<<15)>>>0,new Number(R&(1<<l)-1)),W[0]=(R>>>l)%L,W},J.requestIdleCallback?function(R){requestIdleCallback(R,{timeout:4})}:J.setImmediate?function(R){setImmediate(R)}:function(R){setTimeout(R,0)}),function(R,l){return(l=R.A(),l&128)&&(l=l&127|R.A()<<7),l}),N=function(R,l,L){return M(R,((L=R.v(94),R).K&&L<R.K.length?(y(R,94,R.K.length),p(R,l)):y(R,94,l),L))},M=function(R,l,L,W,b,Z,D){R.P++;try{for(W=(L=R.K.length,Z=0,5001),b=void 0;(R.h||--W)&&(R.D||(Z=R.v(94))<L);)try{R.D?b=R.A(true):(y(R,138,Z),D=R.A(),b=R.v(D)),b&&b.call?b(R):S(R,21,0,D),R.l=true,X(R,0,2)}catch(B){B!=R.w&&(R.v(163)?S(R,22,B):y(R,163,B))}W||S(R,33)}catch(B){try{S(R,22,B)}catch(v){h(R,v)}}return L=R.v(231),l&&y(R,94,l),R.P--,L},m=function(R,l,L,W){for(L=R.A(),W=0;0<l;l--)W=W<<8|R.A();y(R,L,W)},G=(c.prototype.v=function(R,l){if((l=this.a[R],void 0)===l)throw S(this,30,0,R),this.w;return l()},function(R,l,L,W,b,Z){for(107==(b=R.v(l),l)?(l=function(R,l,L,W){if(b.b!=(L=(l=b.length,l-4)>>3,L)){L=(L<<(b.b=L,3))-(W=[0,0,0,Z],4);try{b.H=x(q(b,L),q(b,L+4),W)}catch(t){throw t;}}b.push(b.H[l&7]^R)},Z=R.v(154)):l=function(R){b.push(R)},W&&l(W&255),R=L.length,W=0;W<R;W++)l(L[W])}),k=function(R,l,L,W){(W=(L=R.A(),R).A(),G)(R,W,n(R.v(L),l))},y=(I=J.botguard||(J.botguard={}),function(R,l,L){if(94==l||138==l)if(R.a[l])R.a[l][R.J](L);else R.a[l]=R.$(L);else if(56!=l&&107!=l&&5!=l&&3!=l||!R.a[l])R.a[l]=R.W(L,R.v);125==l&&(R.U=void 0,y(R,94,R.v(94)+4))});(I.bg=function(R,l,L){return R&&R.substring&&(L=I[R.substring(0,3)])?new L(R.substring(3),l):new I.eLj(R,l)},I).eLj=function(R,l,L){this.invoke=(L=new c(R,{m:l}),function(R,l,Z){return(Z=L.O(l&&R,Z),R)&&!l&&R(Z),Z})};try{I.u||(J.addEventListener("unload",function(){},P),I.u=1)}catch(R){}try{J.addEventListener("test",null,Object.defineProperty({},"passive",{get:function(){P={passive:true}}}))}catch(R){};')();</script>
-  <script type="text/javascript" nonce="AnFQTdctDyTbBO0eE2XNjw">
-  document.bg = new botguard.bg('eLjKMr5uVRgyJa1rfQoXc77y60rj0/7rZ3Ik5GNJGfFovpAvYt9aCVSydilQfm63dPNrL9j7e83jVYJRSBjUbECdb8F8vlAUqmvZxsKqjIA0rHi3Ni6GiJYQ5MsH4wr6j+qcW/RuXheM8/DhPmZ+VaF6CrhotcO6tSFaCE00cPOz/NbyFqWRfutFKbaYEvAg0UKNkzLm3ywTE5vJAs98OBP7MEBTWLKlWuNQfx46XA7O/kkDE44v4s8DQwhsDIGY8NEiu+sCQl6UMjKVyxOPaklAFLLf4X6qEarTz3+INrwNp1V6ohDrlcxH87zhivl0OenKCLVEg62a9FgN0mraUzzal3W5t6pXFQ2+Ja/ywT0Rb5sUhKZ6sobB/sgbe4BcaiGui+iFOZGQLAptiI3nN/QOA9IVe9+YEHNSymaES1ORr4ZKFLJNH2gDJFgGqWMj6mEYskeTblO5QglkVRMN3MweYSDub0/M4FjLxn9L+PQiumLlwKMx+iZO+D8Y1ZgzKL2JCU+qO8pt785EFqEqu+D7rh6COiUcmJeqD0GofVgAe5kX4HKos6J+s2cDu6Cav6dZTo82DDz+vglXgfQgKs4150F6B+bVCQRy56qzfY1OnArnFJ8RzXb7pIoR7/QhD1p/sJ4yYFQa1+EsHgH8X/MQsd3NOajm9cD/UbjAsuqxt/e7F2TAqLeiAwDzpnxVwHLEqxml5iTSy6vTLYEHudLquyBTP9vH+ih3Ka0MYT+YCWA9vCSxXMmbznWTdK+UJ0KIIBe0kqNbQ6uw4HwwD8CYv14WR+FfmaYS98ifrFcqlcDpGyCVOVMadcAwlMjD1H/2OgVsR0uiHlpO0EPff0DtEzaEyzciVDZbNbJ0DysWckGVCG7FdKVGDTvpyzMECc+da4AKok/QymLw8GqbY+ShavWgvhqM8NGIdOG6jNDO3cbJoF3U5Qi8iY6s0tuv2uTB47ieTVkTnLxKIgpFRZGFM/s43uNetoXke3cpO+bIFFn+8K/RHVoEVybq0fonUHfLAi9BDn9i0VcWVoGpzQoct9ltXhImoUenIEb+ONogBWtMCWYTNdEoeYpF9+9gZnvaj4imlPzkx4uuqFsxdw3sgKEEZ1HLfCrLOP4HLDZOWA5In/5pRUVqMB86ffvN9Q7POOfAkpiPinXRV5+AvHX81z0hxTCcGwonzQd5n/4QwJXp/aYqJtayzB0Pdghs5CvuxQM55LREenhQGGQPNjXbddQUVzDq06PIozfWr5pWm+H2fjLPQf4wXu8NI7wpmzndax63orto7IHlfRTCneeETGPuQ8vciXXqn3V2mN9JmUP4uxgszK9XnrL0KDs2DMc3fnJUfnqMhov3SqChffZy5VeXaJv4XvdRAck7LexZM28fgYbW/unzl5LVWY1iRYCYv+Zl3tGJMsU6NKKfO3OiwTHODf2AEc6fBqUP2EMRpSkj38D4+umDmT89gS0qkzMzhx046WwFjM4nYJjxCd7bWrOA45KR1mvLUE5NgsGgk4XUKoKKf3mzI7uk+anFfZR4IBFqviSuBScQXrJE+xlIsDsJO59DUmZxbyRY/Ugo27o6ctMogGP1TopEDWek+FgB6a6CIItGdp/TEEXbpTVQ+XJ7Il3mfzy8S0on4mlcAuDutNLTmpYsZJAZnHTcSVuz3+Fs0htC/qH7UO0wu+fS4+o0Slub4V4kbnhyweqKGXVZq96bW4O49sr7wi275F5veAR3exH3924hsuqopWlZ5f6eNtdtxrBRqGuhTjVBhj0uQIRLX3Et3YkjjhZHVqLSiXomBSWXKlxvceN8e7UPn66J04KbVTMfZ0znh+7DI5cf5raqyFayBQJXBnN7sMHpG/nxpBiqxsG7ettQYDAaxupXam7rylkedU1qFCh3T+G2mbnAX7PuLKxbQAbTee+OCO09kE1Dl7X3w8HUjBTcNLjmzbdCUhmt5ZyML9bU1bygmXwHKvhggHxmEIQZcsUevN/fw7D1cSBsk3pSDsnMGgjCRcmdLuLhCNZM1RCaKKZHFmZqJUuGRrSaGzb+6C/TdZiJNWe9Q16QD35qbFBRZVR9JoMpq2gZicavWbZcTAvnDQV1JYOhRNij/5G/9SrLqAbl3klpaYpt05ITqhs06puJm6Gt/6tpbxivg1XZQ9BNEKSYT0orHgNIj9KNYwVDoSGYkLe+GecUTA39D4tpdEUKhQtzM68cJJDgPwmZweC77AMmNTDp947on5c3O6vc5LVvsKg+Oc3hjPPl+707KKSH/n/ao1XpVLoEK7tAnj/lkuXU9bMPPorVEIUI/Su4nze5ZRoHqZGr6WNrSGhjaz2FqV+Sf++ouxbZEIvH2ATTb4TQyrPOxqyiSwhmOiQPHE5aq3YuCsD+oEMbU0CXfPRiW04n8AdT79DyUSY9rx8wVAD9IF6GQQSKLEp6Vl5gJh/mMS18u+akgemt98ni7AowT1lI0xL1xSB2SCmS8F17JHVYw/vOu4O8SeydL0jUNc4uYYbzU5suGUpNvvQI6UDsKaVo6D1lCIPMUD24Pbfi9XwqDoG1iVe/zzmykCHkqqgPXCz1euQ1mBg6/WjkfA2PyVLcFHoGBv0XtpBfPh7ed07YU9x2aukCc2oEyCAJ9tXmr7jUX7MoG5XYug9C+zPoG0+4VakfpDBw3I07qVIelVm3c9oJA9ayAVAkqZZUDCSQsI6y1ewOUlmudcI03igwoKrGU41Dj87qGnHfUsjoyf8hapjklFTfZB2Rg1bvFdYNk0MipbTZkv4gNBd88uymCWP/U8GMhz4irjAANEb4AnLIdIs2c8mNTD6Hv4ImEkZeO9RjWfcFSnT1h3onPl2B/+5r2xlFt1K4M33TN/N3j9wmMISp5iSClh8y2FC4X0+am+xD2R9naLaJEddxS1E1/SjQ/xl1EKE5iQkNLe6HEfH+cXy7KUuHN5KunRAcSrSSVoex1biDAbQhfJDtdEYKFaG9YQShHmpZn+8jObJwlmIFx1mMhJ2OLMCcO3/PmpZ1EM8XtdPOa7ajkdKsn4nxYMiwzKTo73U/fU/JXj4QVnVOYD+Euc0XVEjWzsqKAd8luU0/tnSNFIdpWalH2grEZb68PQGoTMEGyaZgd10n4udbDvylcsx39c1K8j1VOGoXxY0ZZCsPnm/UVXQgo9gaYk7jSBKCqm4R7jClzqL6z4TO4UMPj8t9jyn9NX4+p7a66Y79LyRhlDH9vuc3n0N8YLtu6Kl+SWNjyjrvrMK1P9ISkOLrSSdU8QDnj/FJy+mkApuEnQeCkc84x+6c6orUSRRwES6KZhNbCbiNhyFPYtRRubY+3JiQQyr88BfUIbkCZ7XVm/NpyvQKLQlFH5OH5gL/lFxaEimTVrWCWW3xaZgtJ2O8ruH7/fEFxixzqoCQvV8bGuGXiFa9dv1q59dwnrliFvPm5SS5xfoO2CkC6W7CyLk0+CBjio3SrATyNC9OZWJkKBssTmHFifeAPQjyd/WilOhZKMWZP+t/EHnNxY2hNC7+CSsQTgOXHO7HCJ3+rjKK4DsvIZOylDHEkkmS3kQervttdz7uTyVZTFTpawdTopAjkceBLgpqYaeNgvHIItRlFkvyXhnID56m2Uyh1W4FilQjgAXQXOFUO9n/QLLFirJS7SGq5ZNCfpMAHQpztF6IPjmIuRRogLAw+Jvtp9M8asMaS1EJ4zQTLCQhgTgLbSS/kpXX08S5wciLK9m3xHfzsCmy1gOvfg5FbrvqdbUSMDprCTz3FWjd94fpnY6jiJKwANXgktNuMfB2enUZfLnXVLMedAVSk+XppLcpC/k9+h8G7fMGU23ozDrwLrQWps/Hv6QUl0YsOPKEZPU1TP0YfyPeZRlHeBj7ej6jicBhasrNP/08M+NLCSwqXOYu7pdJ2a2DqRrCrKm+hWcsGJbxYNEqyv9O3eXDhOQOHEUKRyqi7Pe0LDYDEUXfhVcoK4KupX5KnsRi6Uo0wLn6SKpfA1bPTz/hbw8jIsCkDDPaYDrVxB1Nlqtmh3ELdUdZNaUaMRcaQ1DDgZRI212wG2eVBrPYu5uZ8/yMN7uYMHoVv/Pua4NtwWnLSIyznHIL6ESj2kAfgExtl2A023AVNWGOQHlWJb2Ork1Rq4FbNd2QIJUdjEOf4+ss8PlmyBuIvh9yxm1OCKPGq47pfP884MQRbdzOhkYM04uFDVv7Ya1c1MV5hG3tswbmC4d2hkKBe+frjRMo9hBlf8aQ6mgyQheVboHXbf3TcjHyvMx7yVRaDAG7riXxTUyWtmzg3kT13pBMy97qlFUzt7YD9U6rlK2STr61NfracQ7MKS6WN3lpcX78BrXRbOVRTVdp1t61pjfgVfyVQcMQcCj+lqodhRjWTPicWIvlps8EHOYY271mI2CSpn7hvu+TbPTJIwsn6KPSe0y15htLXw2+4evKyIWg9NtUrXLKJIVVtH0M/ZRD4rcw7loSfQmXTcRJqyUL+d3Pq5Q7HoEBiICZ/Ylua30Ze446zXQPAwIggVh8O5BEoOkQJUOd2fCvRmFfd3DjoDGlkNWSaBBq+IxiafxHtHj+Ru+VDUTbBKQgzx3Xq5yCmyNVnfd3R69fdqMhA9BNEIraoOOb87Wyk4ewz0efAXuhTnKFuJ8+F6hw7In1G2G6kUa/FSIN9cVZkwudUuTKJPpCa8qiN6A');
-  </script>
-<script nonce="AnFQTdctDyTbBO0eE2XNjw">
-  gaia = window.gaia || {};
-  gaia.ps = gaia.ps || {};
-  gaia.ps.hasPrefilledIdentifier = false;
-  function gaia_parseFragment() {
-  var hash = location.hash;
-  var params = {};
-  if (!hash) {
-  return params;
-  }
-  var paramStrs = decodeURIComponent(hash.substring(1)).split('&');
-  for (var i = 0; i < paramStrs.length; i++) {
-      var param = paramStrs[i].split('=');
-      params[param[0]] = param[1];
-    }
-    return params;
-  }
-
-  function gaia_prefillEmail() {
-    var email = null;
-    var form = null;
-    if (document.getElementById) {
-      email = document.getElementById('Email');
-      form = document.getElementById('gaia_loginform');
-    }
-    if (form && email && (email.value == null || email.value == '')
-        && (email.type != 'hidden')) {
-      hashParams = gaia_parseFragment();
-      if (hashParams['Email'] && hashParams['Email'] != '') {
-        email.value = hashParams['Email'];
-      }
-    }
-  }
-
-  
-  try {
-    gaia_prefillEmail();
-  } catch (e) {
-  }
-  
-</script>
-<script nonce="AnFQTdctDyTbBO0eE2XNjw">
-  var gaia_scrollToElement = function(element) {
-  var calculateOffsetHeight = function(element) {
-  var curtop = 0;
-  if (element.offsetParent) {
-  while (element) {
-  curtop += element.offsetTop;
-  element = element.offsetParent;
-  }
-  }
-  return curtop;
-  }
-  var siginOffsetHeight = calculateOffsetHeight(element);
-  var scrollHeight = siginOffsetHeight - window.innerHeight +
-  element.clientHeight + 0.02 * window.innerHeight;
-  window.scroll(0, scrollHeight);
-  }
-</script>
-<script type="text/javascript" nonce="AnFQTdctDyTbBO0eE2XNjw">
-var BrowserSupport_={IsBrowserSupported:function(){var agt=navigator.userAgent.toLowerCase();var is_op=agt.indexOf("opera")!=-1;var is_ie=agt.indexOf("msie")!=-1&&document.all&&!is_op;var is_ie5=agt.indexOf("msie 5")!=-1&&document.all&&!is_op;var is_mac=agt.indexOf("mac")!=-1;var is_gk=agt.indexOf("gecko")!=-1;var is_sf=agt.indexOf("safari")!=-1;if(is_ie&&!is_op&&!is_mac){if(agt.indexOf("palmsource")!=
--1||agt.indexOf("regking")!=-1||agt.indexOf("windows ce")!=-1||agt.indexOf("j2me")!=-1||agt.indexOf("avantgo")!=-1||agt.indexOf(" stb")!=-1)return false;var v=BrowserSupport_.GetFollowingFloat(agt,"msie ");if(v!=null)return v>=5.5}if(is_gk&&!is_sf){var v=BrowserSupport_.GetFollowingFloat(agt,"rv:");if(v!=null)return v>=1.4;else{v=BrowserSupport_.GetFollowingFloat(agt,"galeon/");if(v!=null)return v>=
-1.3}}if(is_sf){if(agt.indexOf("rv:3.14.15.92.65")!=-1)return false;var v=BrowserSupport_.GetFollowingFloat(agt,"applewebkit/");if(v!=null)return v>=312}if(is_op){if(agt.indexOf("sony/com1")!=-1)return false;var v=BrowserSupport_.GetFollowingFloat(agt,"opera ");if(v==null)v=BrowserSupport_.GetFollowingFloat(agt,"opera/");if(v!=null)return v>=8}if(agt.indexOf("pda; sony/com2")!=-1)return true;return false},
-GetFollowingFloat:function(str,pfx){var i=str.indexOf(pfx);if(i!=-1){var v=parseFloat(str.substring(i+pfx.length));if(!isNaN(v))return v}return null}};var is_browser_supported=BrowserSupport_.IsBrowserSupported()
-  </script>
-<script type=text/javascript nonce="AnFQTdctDyTbBO0eE2XNjw">
 <!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space: nowrap}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: serif; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="/software/gnulib/manual.css">
 
-var start_time = (new Date()).getTime();
 
-if (top.location != self.location) {
- top.location = self.location.href;
-}
+</head>
 
-function SetGmailCookie(name, value) {
-  document.cookie = name + "=" + value + ";path=/;domain=.google.com";
-}
+<body lang="en">
+<h1 class="settitle" align="center">GNU <code>gettext</code> utilities</h1>
 
-function lg() {
-  var now = (new Date()).getTime();
 
-  var cookie = "T" + start_time + "/" + start_time + "/" + now;
-  SetGmailCookie("GMAIL_LOGIN", cookie);
-}
 
-function StripParam(url, param) {
-  var start = url.indexOf(param);
-  if (start == -1) return url;
-  var end = start + param.length;
 
-  var charBefore = url.charAt(start-1);
-  if (charBefore != '?' && charBefore != '&') return url;
 
-  var charAfter = (url.length >= end+1) ? url.charAt(end) : '';
-  if (charAfter != '' && charAfter != '&' && charAfter != '#') return url;
-  if (charBefore == '&') {
-  --start;
-  } else if (charAfter == '&') {
-  ++end;
-  }
-  return url.substring(0, start) + url.substring(end);
-}
-var fixed = 0;
-function FixForm() {
-  if (is_browser_supported) {
-  var form = el("gaia_loginform");
-  if (form && form["continue"]) {
-  var url = form["continue"].value;
-  url = StripParam(url, "ui=html");
-  url = StripParam(url, "zy=l");
-  form["continue"].value = url;
-  }
-  }
-  fixed = 1;
-}
-function el(id) {
-  if (document.getElementById) {
-  return document.getElementById(id);
-  } else if (window[id]) {
-  return window[id];
-  }
-  return null;
-}
-var ONE_PX = "https://mail.google.com/mail/images/cleardot.gif?t=" +
-  (new Date()).getTime();
-function LogRoundtripTime() {
-  var img = new Image();
-  var start = (new Date()).getTime();
-  img.onload = GetRoundtripTimeFunction(start);
-  img.src = ONE_PX;
-}
-function GetRoundtripTimeFunction(start) {
-  return function() {
-  var end = (new Date()).getTime();
-  SetGmailCookie("GMAIL_RTT", (end - start));
-  }
-}
-function MaybePingUser() {
-  var f = el("gaia_loginform");
-  if (f.Email.value) {
-  new Image().src = 'https://mail.google.com/mail/gxlu?email=' +
-  encodeURIComponent(f.Email.value) +
-  '&zx=' + (new Date().getTime());
-  }
-}
-var passwd_elem = el("Passwd");
-if (passwd_elem) {
-  passwd_elem.onfocus = MaybePingUser;
-}
-function OnLoad() {
-  MaybePingUser();
-  LogRoundtripTime();
-  LoadConversionScript();
-}
-var google_conversion_type = 'landing';
-var google_conversion_id = 1069902127;
-var google_conversion_language = "en_US";
-var google_conversion_format = "1";
-var google_conversion_color = "FFFFFF";
-function LoadConversionScript() {
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = "https://www.googleadservices.com/pagead/conversion.js";
-}
-// -->
-</script>
-<script nonce="AnFQTdctDyTbBO0eE2XNjw">
-gaia_attachEvent(window, 'load', function() {
-  OnLoad();
-  FixForm();
-});
-(function() {
-  var gaiaLoginForm = document.getElementById('gaia_loginform');
-  var gaia_onsubmitHandler = gaiaLoginForm.onsubmit;
-  gaiaLoginForm.onsubmit = function() {
-  lg();
-  if (!fixed) {
-  FixForm();
-  }
-  gaia_onsubmitHandler();
-  };
-})();
-</script>
-  <script nonce="AnFQTdctDyTbBO0eE2XNjw">
-  if (gaia.ps.hasPrefilledIdentifier) {
-  var form = document.getElementById('gaia_loginform');
-  if (form) {
-  form.submit();
-  }
-  }
-  </script>
-<script nonce="AnFQTdctDyTbBO0eE2XNjw">
-  (function(){
-  gaia_onLoginSubmit = function() {
-  try {
-  gaia.loginAutoRedirect.stop();
-  } catch (err) {
-  // do not prevent form from being submitted
-  }
-  try {
-  document.bg.invoke(function(response) {
-  document.getElementById('bgresponse').value = response;
-  });
-  } catch (err) {
-  document.getElementById('bgresponse').value = '';
-  }
-  return true;
-  }
-  document.getElementById('gaia_loginform').onsubmit = gaia_onLoginSubmit;
-  var signinButton;
-  signinButton = document.getElementById('next');
-  gaia_attachEvent(window, 'load', function(){
-  gaia_scrollToElement(signinButton);
-  });
-  })();
-</script>
-  <script nonce="AnFQTdctDyTbBO0eE2XNjw">var e=this,g=function(a,c){a=a.split(".");var b=e;a[0]in b||!b.execScript||b.execScript("var "+a[0]);for(var d;a.length&&(d=a.shift());)a.length||void 0===c?b[d]?b=b[d]:b=b[d]={}:b[d]=c};var h=function(){try{return new XMLHttpRequest}catch(b){for(var a=["MSXML2.XMLHTTP.6.0","MSXML2.XMLHTTP.3.0","MSXML2.XMLHTTP","Microsoft.XMLHTTP"],c=0;c<a.length;c++)try{return new ActiveXObject(a[c])}catch(d){}}return null};g("gaia.ajax.newXmlHttpRequest",h);var k=function(){this.a=h();this.parameters={}};g("gaia.ajax.XmlHttpFormRequest",k);
-k.prototype.send=function(a,c){var b=[],d;for(d in this.parameters)b.push(d+"="+encodeURIComponent(this.parameters[d]));b=b.join("&");var f=this.a;f.open("POST",a,!0);f.setRequestHeader("Content-type","application/x-www-form-urlencoded");f.onreadystatechange=function(){4==f.readyState&&c({status:f.status,text:f.responseText})};f.send(b)};k.prototype.send=k.prototype.send;
-k.prototype.h=function(a,c,b){var d=this.a;d.open("POST",a,!0);d.setRequestHeader("Content-type","application/json");d.onreadystatechange=function(){4==d.readyState&&b({status:d.status,text:d.responseText})};d.send(c)};k.prototype.sendJson=k.prototype.h;k.prototype.get=function(a,c){var b=this.a;b.open("GET",a,!0);b.onreadystatechange=function(){4==b.readyState&&c({status:b.status,text:b.responseText})};b.send()};k.prototype.get=k.prototype.get;var l=/\s*;\s*/,m=function(){if(!document.cookie)return"";for(var a=document.cookie.split(l),c=0;c<a.length;c++){var b=a[c];b=b.replace(/^\s+/,"");b=b.replace(/\s+$/,"");if(0==b.indexOf("APISID="))return b.substr(7)}return""};var n=null,p=function(a,c){this.g=a;this.f=c;this.c=m();this.b=!1},q=function(){var a=n,c=m();c==a.c||a.b||(a.c=c,(new k).get(a.f,function(b){var a=n;b&&b.status&&200==b.status&&"OK"==b.text&&(a.a&&clearInterval(a.a),a.b||(window.location=a.g))}))};p.prototype.start=function(a){if(this.a)return!1;this.a=setInterval(function(){q()},a);return!0};g("gaia.loginAutoRedirect.start",function(a,c,b){if(n||!b||!c||0>=a)return!1;n=new p(c,b);return n.start(a)});
-g("gaia.loginAutoRedirect.stop",function(){var a=n;a.b=!0;a.a&&(clearInterval(a.a),a.a=null)});
-</script>
-  <script type="text/javascript" nonce="AnFQTdctDyTbBO0eE2XNjw">
-  gaia.loginAutoRedirect.start(5000,
-  'https:\x2F\x2Faccounts.google.com\x2FServiceLogin?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F\x26osid=1\x26service=mail\x26ss=1\x26ltmpl=default\x26rm=false\x26passive=true\x26noautologin=true',
-  'https:\x2F\x2Faccounts.google.com\x2FPassiveLoginProber?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F\x26osid=1\x26service=mail\x26ss=1\x26ltmpl=default\x26rm=false\x26passive=true');
-  </script>
-  </body>
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a name="toc-Introduction-1" href="Introduction.html#Introduction">1 Introduction</a>
+  <ul class="no-bullet">
+    <li><a name="toc-The-Purpose-of-GNU-gettext" href="Why.html#Why">1.1 The Purpose of GNU <code>gettext</code></a></li>
+    <li><a name="toc-I18n_002c-L10n_002c-and-Such" href="Concepts.html#Concepts">1.2 I18n, L10n, and Such</a></li>
+    <li><a name="toc-Aspects-in-Native-Language-Support" href="Aspects.html#Aspects">1.3 Aspects in Native Language Support</a></li>
+    <li><a name="toc-Files-Conveying-Translations" href="Files.html#Files">1.4 Files Conveying Translations</a></li>
+    <li><a name="toc-Overview-of-GNU-gettext" href="Overview.html#Overview">1.5 Overview of GNU <code>gettext</code></a></li>
+  </ul></li>
+  <li><a name="toc-The-User_0027s-View" href="Users.html#Users">2 The User&rsquo;s View</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Operating-System-Installation" href="System-Installation.html#System-Installation">2.1 Operating System Installation</a></li>
+    <li><a name="toc-Setting-the-Locale-Used-by-GUI-Programs" href="Setting-the-GUI-Locale.html#Setting-the-GUI-Locale">2.2 Setting the Locale Used by GUI Programs</a></li>
+    <li><a name="toc-Setting-the-Locale-through-Environment-Variables" href="Setting-the-POSIX-Locale.html#Setting-the-POSIX-Locale">2.3 Setting the Locale through Environment Variables</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Locale-Names-1" href="Locale-Names.html#Locale-Names">2.3.1 Locale Names</a></li>
+      <li><a name="toc-Locale-Environment-Variables-1" href="Locale-Environment-Variables.html#Locale-Environment-Variables">2.3.2 Locale Environment Variables</a></li>
+      <li><a name="toc-Specifying-a-Priority-List-of-Languages" href="The-LANGUAGE-variable.html#The-LANGUAGE-variable">2.3.3 Specifying a Priority List of Languages</a></li>
+    </ul></li>
+    <li><a name="toc-Installing-Translations-for-Particular-Programs" href="Installing-Localizations.html#Installing-Localizations">2.4 Installing Translations for Particular Programs</a></li>
+  </ul></li>
+  <li><a name="toc-The-Format-of-PO-Files" href="PO-Files.html#PO-Files">3 The Format of PO Files</a></li>
+  <li><a name="toc-Preparing-Program-Sources" href="Sources.html#Sources">4 Preparing Program Sources</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Importing-the-gettext-declaration" href="Importing.html#Importing">4.1 Importing the <code>gettext</code> declaration</a></li>
+    <li><a name="toc-Triggering-gettext-Operations" href="Triggering.html#Triggering">4.2 Triggering <code>gettext</code> Operations</a></li>
+    <li><a name="toc-Preparing-Translatable-Strings" href="Preparing-Strings.html#Preparing-Strings">4.3 Preparing Translatable Strings</a></li>
+    <li><a name="toc-How-Marks-Appear-in-Sources" href="Mark-Keywords.html#Mark-Keywords">4.4 How Marks Appear in Sources</a></li>
+    <li><a name="toc-Marking-Translatable-Strings" href="Marking.html#Marking">4.5 Marking Translatable Strings</a></li>
+    <li><a name="toc-Special-Comments-preceding-Keywords" href="c_002dformat-Flag.html#c_002dformat-Flag">4.6 Special Comments preceding Keywords</a></li>
+    <li><a name="toc-Special-Cases-of-Translatable-Strings" href="Special-cases.html#Special-cases">4.7 Special Cases of Translatable Strings</a></li>
+    <li><a name="toc-Letting-Users-Report-Translation-Bugs" href="Bug-Report-Address.html#Bug-Report-Address">4.8 Letting Users Report Translation Bugs</a></li>
+    <li><a name="toc-Marking-Proper-Names-for-Translation" href="Names.html#Names">4.9 Marking Proper Names for Translation</a></li>
+    <li><a name="toc-Preparing-Library-Sources" href="Libraries.html#Libraries">4.10 Preparing Library Sources</a></li>
+  </ul></li>
+  <li><a name="toc-Making-the-PO-Template-File" href="Template.html#Template">5 Making the PO Template File</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Invoking-the-xgettext-Program" href="xgettext-Invocation.html#xgettext-Invocation">5.1 Invoking the <code>xgettext</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location" href="xgettext-Invocation.html#Input-file-location">5.1.1 Input file location</a></li>
+      <li><a name="toc-Output-file-location" href="xgettext-Invocation.html#Output-file-location">5.1.2 Output file location</a></li>
+      <li><a name="toc-Choice-of-input-file-language" href="xgettext-Invocation.html#Choice-of-input-file-language">5.1.3 Choice of input file language</a></li>
+      <li><a name="toc-Input-file-interpretation" href="xgettext-Invocation.html#Input-file-interpretation">5.1.4 Input file interpretation</a></li>
+      <li><a name="toc-Operation-mode" href="xgettext-Invocation.html#Operation-mode">5.1.5 Operation mode</a></li>
+      <li><a name="toc-Language-specific-options" href="xgettext-Invocation.html#Language-specific-options">5.1.6 Language specific options</a></li>
+      <li><a name="toc-Output-details" href="xgettext-Invocation.html#Output-details">5.1.7 Output details</a></li>
+      <li><a name="toc-Informative-output" href="xgettext-Invocation.html#Informative-output">5.1.8 Informative output</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Creating-a-New-PO-File" href="Creating.html#Creating">6 Creating a New PO File</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Invoking-the-msginit-Program" href="msginit-Invocation.html#msginit-Invocation">6.1 Invoking the <code>msginit</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-1" href="msginit-Invocation.html#Input-file-location-1">6.1.1 Input file location</a></li>
+      <li><a name="toc-Output-file-location-1" href="msginit-Invocation.html#Output-file-location-1">6.1.2 Output file location</a></li>
+      <li><a name="toc-Input-file-syntax" href="msginit-Invocation.html#Input-file-syntax">6.1.3 Input file syntax</a></li>
+      <li><a name="toc-Output-details-1" href="msginit-Invocation.html#Output-details-1">6.1.4 Output details</a></li>
+      <li><a name="toc-Informative-output-1" href="msginit-Invocation.html#Informative-output-1">6.1.5 Informative output</a></li>
+    </ul></li>
+    <li><a name="toc-Filling-in-the-Header-Entry" href="Header-Entry.html#Header-Entry">6.2 Filling in the Header Entry</a></li>
+  </ul></li>
+  <li><a name="toc-Updating-Existing-PO-Files" href="Updating.html#Updating">7 Updating Existing PO Files</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Invoking-the-msgmerge-Program" href="msgmerge-Invocation.html#msgmerge-Invocation">7.1 Invoking the <code>msgmerge</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-2" href="msgmerge-Invocation.html#Input-file-location-2">7.1.1 Input file location</a></li>
+      <li><a name="toc-Operation-mode-1" href="msgmerge-Invocation.html#Operation-mode-1">7.1.2 Operation mode</a></li>
+      <li><a name="toc-Output-file-location-2" href="msgmerge-Invocation.html#Output-file-location-2">7.1.3 Output file location</a></li>
+      <li><a name="toc-Output-file-location-in-update-mode" href="msgmerge-Invocation.html#Output-file-location-in-update-mode">7.1.4 Output file location in update mode</a></li>
+      <li><a name="toc-Operation-modifiers" href="msgmerge-Invocation.html#Operation-modifiers">7.1.5 Operation modifiers</a></li>
+      <li><a name="toc-Input-file-syntax-1" href="msgmerge-Invocation.html#Input-file-syntax-1">7.1.6 Input file syntax</a></li>
+      <li><a name="toc-Output-details-2" href="msgmerge-Invocation.html#Output-details-2">7.1.7 Output details</a></li>
+      <li><a name="toc-Informative-output-2" href="msgmerge-Invocation.html#Informative-output-2">7.1.8 Informative output</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Editing-PO-Files" href="Editing.html#Editing">8 Editing PO Files</a>
+  <ul class="no-bullet">
+    <li><a name="toc-KDE_0027s-PO-File-Editor" href="KBabel.html#KBabel">8.1 KDE&rsquo;s PO File Editor</a></li>
+    <li><a name="toc-GNOME_0027s-PO-File-Editor" href="Gtranslator.html#Gtranslator">8.2 GNOME&rsquo;s PO File Editor</a></li>
+    <li><a name="toc-Emacs_0027s-PO-File-Editor" href="PO-Mode.html#PO-Mode">8.3 Emacs&rsquo;s PO File Editor</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Completing-GNU-gettext-Installation" href="Installation.html#Installation">8.3.1 Completing GNU <code>gettext</code> Installation</a></li>
+      <li><a name="toc-Main-PO-mode-Commands" href="Main-PO-Commands.html#Main-PO-Commands">8.3.2 Main PO mode Commands</a></li>
+      <li><a name="toc-Entry-Positioning-1" href="Entry-Positioning.html#Entry-Positioning">8.3.3 Entry Positioning</a></li>
+      <li><a name="toc-Normalizing-Strings-in-Entries" href="Normalizing.html#Normalizing">8.3.4 Normalizing Strings in Entries</a></li>
+      <li><a name="toc-Translated-Entries-1" href="Translated-Entries.html#Translated-Entries">8.3.5 Translated Entries</a></li>
+      <li><a name="toc-Fuzzy-Entries-1" href="Fuzzy-Entries.html#Fuzzy-Entries">8.3.6 Fuzzy Entries</a></li>
+      <li><a name="toc-Untranslated-Entries-1" href="Untranslated-Entries.html#Untranslated-Entries">8.3.7 Untranslated Entries</a></li>
+      <li><a name="toc-Obsolete-Entries-1" href="Obsolete-Entries.html#Obsolete-Entries">8.3.8 Obsolete Entries</a></li>
+      <li><a name="toc-Modifying-Translations-1" href="Modifying-Translations.html#Modifying-Translations">8.3.9 Modifying Translations</a></li>
+      <li><a name="toc-Modifying-Comments-1" href="Modifying-Comments.html#Modifying-Comments">8.3.10 Modifying Comments</a></li>
+      <li><a name="toc-Details-of-Sub-Edition" href="Subedit.html#Subedit">8.3.11 Details of Sub Edition</a></li>
+      <li><a name="toc-C-Sources-Context-1" href="C-Sources-Context.html#C-Sources-Context">8.3.12 C Sources Context</a></li>
+      <li><a name="toc-Consulting-Auxiliary-PO-Files" href="Auxiliary.html#Auxiliary">8.3.13 Consulting Auxiliary PO Files</a></li>
+    </ul></li>
+    <li><a name="toc-Using-Translation-Compendia" href="Compendium.html#Compendium">8.4 Using Translation Compendia</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Creating-Compendia-1" href="Creating-Compendia.html#Creating-Compendia">8.4.1 Creating Compendia</a>
+      <ul class="no-bullet">
+        <li><a name="toc-Concatenate-PO-Files" href="Creating-Compendia.html#Concatenate-PO-Files">8.4.1.1 Concatenate PO Files</a></li>
+        <li><a name="toc-Extract-a-Message-Subset-from-a-PO-File" href="Creating-Compendia.html#Extract-a-Message-Subset-from-a-PO-File">8.4.1.2 Extract a Message Subset from a PO File</a></li>
+      </ul></li>
+      <li><a name="toc-Using-Compendia-1" href="Using-Compendia.html#Using-Compendia">8.4.2 Using Compendia</a>
+      <ul class="no-bullet">
+        <li><a name="toc-Initialize-a-New-Translation-File" href="Using-Compendia.html#Initialize-a-New-Translation-File">8.4.2.1 Initialize a New Translation File</a></li>
+        <li><a name="toc-Update-an-Existing-Translation-File" href="Using-Compendia.html#Update-an-Existing-Translation-File">8.4.2.2 Update an Existing Translation File</a></li>
+      </ul></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Manipulating-PO-Files" href="Manipulating.html#Manipulating">9 Manipulating PO Files</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Invoking-the-msgcat-Program" href="msgcat-Invocation.html#msgcat-Invocation">9.1 Invoking the <code>msgcat</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-3" href="msgcat-Invocation.html#Input-file-location-3">9.1.1 Input file location</a></li>
+      <li><a name="toc-Output-file-location-3" href="msgcat-Invocation.html#Output-file-location-3">9.1.2 Output file location</a></li>
+      <li><a name="toc-Message-selection" href="msgcat-Invocation.html#Message-selection">9.1.3 Message selection</a></li>
+      <li><a name="toc-Input-file-syntax-2" href="msgcat-Invocation.html#Input-file-syntax-2">9.1.4 Input file syntax</a></li>
+      <li><a name="toc-Output-details-3" href="msgcat-Invocation.html#Output-details-3">9.1.5 Output details</a></li>
+      <li><a name="toc-Informative-output-3" href="msgcat-Invocation.html#Informative-output-3">9.1.6 Informative output</a></li>
+    </ul></li>
+    <li><a name="toc-Invoking-the-msgconv-Program" href="msgconv-Invocation.html#msgconv-Invocation">9.2 Invoking the <code>msgconv</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-4" href="msgconv-Invocation.html#Input-file-location-4">9.2.1 Input file location</a></li>
+      <li><a name="toc-Output-file-location-4" href="msgconv-Invocation.html#Output-file-location-4">9.2.2 Output file location</a></li>
+      <li><a name="toc-Conversion-target" href="msgconv-Invocation.html#Conversion-target">9.2.3 Conversion target</a></li>
+      <li><a name="toc-Input-file-syntax-3" href="msgconv-Invocation.html#Input-file-syntax-3">9.2.4 Input file syntax</a></li>
+      <li><a name="toc-Output-details-4" href="msgconv-Invocation.html#Output-details-4">9.2.5 Output details</a></li>
+      <li><a name="toc-Informative-output-4" href="msgconv-Invocation.html#Informative-output-4">9.2.6 Informative output</a></li>
+    </ul></li>
+    <li><a name="toc-Invoking-the-msggrep-Program" href="msggrep-Invocation.html#msggrep-Invocation">9.3 Invoking the <code>msggrep</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-5" href="msggrep-Invocation.html#Input-file-location-5">9.3.1 Input file location</a></li>
+      <li><a name="toc-Output-file-location-5" href="msggrep-Invocation.html#Output-file-location-5">9.3.2 Output file location</a></li>
+      <li><a name="toc-Message-selection-1" href="msggrep-Invocation.html#Message-selection-1">9.3.3 Message selection</a></li>
+      <li><a name="toc-Input-file-syntax-4" href="msggrep-Invocation.html#Input-file-syntax-4">9.3.4 Input file syntax</a></li>
+      <li><a name="toc-Output-details-5" href="msggrep-Invocation.html#Output-details-5">9.3.5 Output details</a></li>
+      <li><a name="toc-Informative-output-5" href="msggrep-Invocation.html#Informative-output-5">9.3.6 Informative output</a></li>
+      <li><a name="toc-Examples" href="msggrep-Invocation.html#Examples">9.3.7 Examples</a></li>
+    </ul></li>
+    <li><a name="toc-Invoking-the-msgfilter-Program" href="msgfilter-Invocation.html#msgfilter-Invocation">9.4 Invoking the <code>msgfilter</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-6" href="msgfilter-Invocation.html#Input-file-location-6">9.4.1 Input file location</a></li>
+      <li><a name="toc-Output-file-location-6" href="msgfilter-Invocation.html#Output-file-location-6">9.4.2 Output file location</a></li>
+      <li><a name="toc-The-filter" href="msgfilter-Invocation.html#The-filter">9.4.3 The filter</a></li>
+      <li><a name="toc-Useful-filter_002doptions-when-the-filter-is-sed" href="msgfilter-Invocation.html#Useful-filter_002doptions-when-the-filter-is-sed">9.4.4 Useful <var>filter-option</var>s when the <var>filter</var> is &lsquo;<samp>sed</samp>&rsquo;</a></li>
+      <li><a name="toc-Built_002din-filters" href="msgfilter-Invocation.html#Built_002din-filters">9.4.5 Built-in <var>filter</var>s</a></li>
+      <li><a name="toc-Input-file-syntax-5" href="msgfilter-Invocation.html#Input-file-syntax-5">9.4.6 Input file syntax</a></li>
+      <li><a name="toc-Output-details-6" href="msgfilter-Invocation.html#Output-details-6">9.4.7 Output details</a></li>
+      <li><a name="toc-Informative-output-6" href="msgfilter-Invocation.html#Informative-output-6">9.4.8 Informative output</a></li>
+      <li><a name="toc-Examples-1" href="msgfilter-Invocation.html#Examples-1">9.4.9 Examples</a></li>
+    </ul></li>
+    <li><a name="toc-Invoking-the-msguniq-Program" href="msguniq-Invocation.html#msguniq-Invocation">9.5 Invoking the <code>msguniq</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-7" href="msguniq-Invocation.html#Input-file-location-7">9.5.1 Input file location</a></li>
+      <li><a name="toc-Output-file-location-7" href="msguniq-Invocation.html#Output-file-location-7">9.5.2 Output file location</a></li>
+      <li><a name="toc-Message-selection-2" href="msguniq-Invocation.html#Message-selection-2">9.5.3 Message selection</a></li>
+      <li><a name="toc-Input-file-syntax-6" href="msguniq-Invocation.html#Input-file-syntax-6">9.5.4 Input file syntax</a></li>
+      <li><a name="toc-Output-details-7" href="msguniq-Invocation.html#Output-details-7">9.5.5 Output details</a></li>
+      <li><a name="toc-Informative-output-7" href="msguniq-Invocation.html#Informative-output-7">9.5.6 Informative output</a></li>
+    </ul></li>
+    <li><a name="toc-Invoking-the-msgcomm-Program" href="msgcomm-Invocation.html#msgcomm-Invocation">9.6 Invoking the <code>msgcomm</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-8" href="msgcomm-Invocation.html#Input-file-location-8">9.6.1 Input file location</a></li>
+      <li><a name="toc-Output-file-location-8" href="msgcomm-Invocation.html#Output-file-location-8">9.6.2 Output file location</a></li>
+      <li><a name="toc-Message-selection-3" href="msgcomm-Invocation.html#Message-selection-3">9.6.3 Message selection</a></li>
+      <li><a name="toc-Input-file-syntax-7" href="msgcomm-Invocation.html#Input-file-syntax-7">9.6.4 Input file syntax</a></li>
+      <li><a name="toc-Output-details-8" href="msgcomm-Invocation.html#Output-details-8">9.6.5 Output details</a></li>
+      <li><a name="toc-Informative-output-8" href="msgcomm-Invocation.html#Informative-output-8">9.6.6 Informative output</a></li>
+    </ul></li>
+    <li><a name="toc-Invoking-the-msgcmp-Program" href="msgcmp-Invocation.html#msgcmp-Invocation">9.7 Invoking the <code>msgcmp</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-9" href="msgcmp-Invocation.html#Input-file-location-9">9.7.1 Input file location</a></li>
+      <li><a name="toc-Operation-modifiers-1" href="msgcmp-Invocation.html#Operation-modifiers-1">9.7.2 Operation modifiers</a></li>
+      <li><a name="toc-Input-file-syntax-8" href="msgcmp-Invocation.html#Input-file-syntax-8">9.7.3 Input file syntax</a></li>
+      <li><a name="toc-Informative-output-9" href="msgcmp-Invocation.html#Informative-output-9">9.7.4 Informative output</a></li>
+    </ul></li>
+    <li><a name="toc-Invoking-the-msgattrib-Program" href="msgattrib-Invocation.html#msgattrib-Invocation">9.8 Invoking the <code>msgattrib</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-10" href="msgattrib-Invocation.html#Input-file-location-10">9.8.1 Input file location</a></li>
+      <li><a name="toc-Output-file-location-9" href="msgattrib-Invocation.html#Output-file-location-9">9.8.2 Output file location</a></li>
+      <li><a name="toc-Message-selection-4" href="msgattrib-Invocation.html#Message-selection-4">9.8.3 Message selection</a></li>
+      <li><a name="toc-Attribute-manipulation" href="msgattrib-Invocation.html#Attribute-manipulation">9.8.4 Attribute manipulation</a></li>
+      <li><a name="toc-Input-file-syntax-9" href="msgattrib-Invocation.html#Input-file-syntax-9">9.8.5 Input file syntax</a></li>
+      <li><a name="toc-Output-details-9" href="msgattrib-Invocation.html#Output-details-9">9.8.6 Output details</a></li>
+      <li><a name="toc-Informative-output-10" href="msgattrib-Invocation.html#Informative-output-10">9.8.7 Informative output</a></li>
+    </ul></li>
+    <li><a name="toc-Invoking-the-msgen-Program" href="msgen-Invocation.html#msgen-Invocation">9.9 Invoking the <code>msgen</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-11" href="msgen-Invocation.html#Input-file-location-11">9.9.1 Input file location</a></li>
+      <li><a name="toc-Output-file-location-10" href="msgen-Invocation.html#Output-file-location-10">9.9.2 Output file location</a></li>
+      <li><a name="toc-Input-file-syntax-10" href="msgen-Invocation.html#Input-file-syntax-10">9.9.3 Input file syntax</a></li>
+      <li><a name="toc-Output-details-10" href="msgen-Invocation.html#Output-details-10">9.9.4 Output details</a></li>
+      <li><a name="toc-Informative-output-11" href="msgen-Invocation.html#Informative-output-11">9.9.5 Informative output</a></li>
+    </ul></li>
+    <li><a name="toc-Invoking-the-msgexec-Program" href="msgexec-Invocation.html#msgexec-Invocation">9.10 Invoking the <code>msgexec</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-12" href="msgexec-Invocation.html#Input-file-location-12">9.10.1 Input file location</a></li>
+      <li><a name="toc-Input-file-syntax-11" href="msgexec-Invocation.html#Input-file-syntax-11">9.10.2 Input file syntax</a></li>
+      <li><a name="toc-Informative-output-12" href="msgexec-Invocation.html#Informative-output-12">9.10.3 Informative output</a></li>
+    </ul></li>
+    <li><a name="toc-Highlighting-parts-of-PO-files" href="Colorizing.html#Colorizing">9.11 Highlighting parts of PO files</a>
+    <ul class="no-bullet">
+      <li><a name="toc-The-_002d_002dcolor-option-1" href="The-_002d_002dcolor-option.html#The-_002d_002dcolor-option">9.11.1 The <code>--color</code> option</a></li>
+      <li><a name="toc-The-environment-variable-TERM" href="The-TERM-variable.html#The-TERM-variable">9.11.2 The environment variable <code>TERM</code></a></li>
+      <li><a name="toc-The-_002d_002dstyle-option-1" href="The-_002d_002dstyle-option.html#The-_002d_002dstyle-option">9.11.3 The <code>--style</code> option</a></li>
+      <li><a name="toc-Style-rules-for-PO-files" href="Style-rules.html#Style-rules">9.11.4 Style rules for PO files</a></li>
+      <li><a name="toc-Customizing-less-for-viewing-PO-files" href="Customizing-less.html#Customizing-less">9.11.5 Customizing <code>less</code> for viewing PO files</a></li>
+    </ul></li>
+    <li><a name="toc-Writing-your-own-programs-that-process-PO-files" href="libgettextpo.html#libgettextpo">9.12 Writing your own programs that process PO files</a></li>
+  </ul></li>
+  <li><a name="toc-Producing-Binary-MO-Files" href="Binaries.html#Binaries">10 Producing Binary MO Files</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Invoking-the-msgfmt-Program" href="msgfmt-Invocation.html#msgfmt-Invocation">10.1 Invoking the <code>msgfmt</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Input-file-location-13" href="msgfmt-Invocation.html#Input-file-location-13">10.1.1 Input file location</a></li>
+      <li><a name="toc-Operation-mode-2" href="msgfmt-Invocation.html#Operation-mode-2">10.1.2 Operation mode</a></li>
+      <li><a name="toc-Output-file-location-11" href="msgfmt-Invocation.html#Output-file-location-11">10.1.3 Output file location</a></li>
+      <li><a name="toc-Output-file-location-in-Java-mode" href="msgfmt-Invocation.html#Output-file-location-in-Java-mode">10.1.4 Output file location in Java mode</a></li>
+      <li><a name="toc-Output-file-location-in-C_0023-mode" href="msgfmt-Invocation.html#Output-file-location-in-C_0023-mode">10.1.5 Output file location in C# mode</a></li>
+      <li><a name="toc-Output-file-location-in-Tcl-mode" href="msgfmt-Invocation.html#Output-file-location-in-Tcl-mode">10.1.6 Output file location in Tcl mode</a></li>
+      <li><a name="toc-Desktop-Entry-mode-operations" href="msgfmt-Invocation.html#Desktop-Entry-mode-operations">10.1.7 Desktop Entry mode operations</a></li>
+      <li><a name="toc-XML-mode-operations" href="msgfmt-Invocation.html#XML-mode-operations">10.1.8 XML mode operations</a></li>
+      <li><a name="toc-Input-file-syntax-12" href="msgfmt-Invocation.html#Input-file-syntax-12">10.1.9 Input file syntax</a></li>
+      <li><a name="toc-Input-file-interpretation-1" href="msgfmt-Invocation.html#Input-file-interpretation-1">10.1.10 Input file interpretation</a></li>
+      <li><a name="toc-Output-details-11" href="msgfmt-Invocation.html#Output-details-11">10.1.11 Output details</a></li>
+      <li><a name="toc-Informative-output-13" href="msgfmt-Invocation.html#Informative-output-13">10.1.12 Informative output</a></li>
+    </ul></li>
+    <li><a name="toc-Invoking-the-msgunfmt-Program" href="msgunfmt-Invocation.html#msgunfmt-Invocation">10.2 Invoking the <code>msgunfmt</code> Program</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Operation-mode-3" href="msgunfmt-Invocation.html#Operation-mode-3">10.2.1 Operation mode</a></li>
+      <li><a name="toc-Input-file-location-14" href="msgunfmt-Invocation.html#Input-file-location-14">10.2.2 Input file location</a></li>
+      <li><a name="toc-Input-file-location-in-Java-mode" href="msgunfmt-Invocation.html#Input-file-location-in-Java-mode">10.2.3 Input file location in Java mode</a></li>
+      <li><a name="toc-Input-file-location-in-C_0023-mode" href="msgunfmt-Invocation.html#Input-file-location-in-C_0023-mode">10.2.4 Input file location in C# mode</a></li>
+      <li><a name="toc-Input-file-location-in-Tcl-mode" href="msgunfmt-Invocation.html#Input-file-location-in-Tcl-mode">10.2.5 Input file location in Tcl mode</a></li>
+      <li><a name="toc-Output-file-location-12" href="msgunfmt-Invocation.html#Output-file-location-12">10.2.6 Output file location</a></li>
+      <li><a name="toc-Output-details-12" href="msgunfmt-Invocation.html#Output-details-12">10.2.7 Output details</a></li>
+      <li><a name="toc-Informative-output-14" href="msgunfmt-Invocation.html#Informative-output-14">10.2.8 Informative output</a></li>
+    </ul></li>
+    <li><a name="toc-The-Format-of-GNU-MO-Files" href="MO-Files.html#MO-Files">10.3 The Format of GNU MO Files</a></li>
+  </ul></li>
+  <li><a name="toc-The-Programmer_0027s-View" href="Programmers.html#Programmers">11 The Programmer&rsquo;s View</a>
+  <ul class="no-bullet">
+    <li><a name="toc-About-catgets" href="catgets.html#catgets">11.1 About <code>catgets</code></a>
+    <ul class="no-bullet">
+      <li><a name="toc-The-Interface" href="Interface-to-catgets.html#Interface-to-catgets">11.1.1 The Interface</a></li>
+      <li><a name="toc-Problems-with-the-catgets-Interface_003f_0021" href="Problems-with-catgets.html#Problems-with-catgets">11.1.2 Problems with the <code>catgets</code> Interface?!</a></li>
+    </ul></li>
+    <li><a name="toc-About-gettext" href="gettext.html#gettext">11.2 About <code>gettext</code></a>
+    <ul class="no-bullet">
+      <li><a name="toc-The-Interface-1" href="Interface-to-gettext.html#Interface-to-gettext">11.2.1 The Interface</a></li>
+      <li><a name="toc-Solving-Ambiguities" href="Ambiguities.html#Ambiguities">11.2.2 Solving Ambiguities</a></li>
+      <li><a name="toc-Locating-Message-Catalog-Files" href="Locating-Catalogs.html#Locating-Catalogs">11.2.3 Locating Message Catalog Files</a></li>
+      <li><a name="toc-How-to-specify-the-output-character-set-gettext-uses" href="Charset-conversion.html#Charset-conversion">11.2.4 How to specify the output character set <code>gettext</code> uses</a></li>
+      <li><a name="toc-Using-contexts-for-solving-ambiguities" href="Contexts.html#Contexts">11.2.5 Using contexts for solving ambiguities</a></li>
+      <li><a name="toc-Additional-functions-for-plural-forms" href="Plural-forms.html#Plural-forms">11.2.6 Additional functions for plural forms</a></li>
+      <li><a name="toc-Optimization-of-the-_002agettext-functions" href="Optimized-gettext.html#Optimized-gettext">11.2.7 Optimization of the *gettext functions</a></li>
+    </ul></li>
+    <li><a name="toc-Comparing-the-Two-Interfaces" href="Comparison.html#Comparison">11.3 Comparing the Two Interfaces</a></li>
+    <li><a name="toc-Using-libintl_002ea-in-own-programs" href="Using-libintl_002ea.html#Using-libintl_002ea">11.4 Using libintl.a in own programs</a></li>
+    <li><a name="toc-Being-a-gettext-grok" href="gettext-grok.html#gettext-grok">11.5 Being a <code>gettext</code> grok</a></li>
+    <li><a name="toc-Temporary-Notes-for-the-Programmers-Chapter" href="Temp-Programmers.html#Temp-Programmers">11.6 Temporary Notes for the Programmers Chapter</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Temporary-_002d-Two-Possible-Implementations" href="Temp-Implementations.html#Temp-Implementations">11.6.1 Temporary - Two Possible Implementations</a></li>
+      <li><a name="toc-Temporary-_002d-About-catgets" href="Temp-catgets.html#Temp-catgets">11.6.2 Temporary - About <code>catgets</code></a></li>
+      <li><a name="toc-Temporary-_002d-Why-a-single-implementation" href="Temp-WSI.html#Temp-WSI">11.6.3 Temporary - Why a single implementation</a></li>
+      <li><a name="toc-Temporary-_002d-Notes" href="Temp-Notes.html#Temp-Notes">11.6.4 Temporary - Notes</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-The-Translator_0027s-View" href="Translators.html#Translators">12 The Translator&rsquo;s View</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Introduction-0" href="Trans-Intro-0.html#Trans-Intro-0">12.1 Introduction 0</a></li>
+    <li><a name="toc-Introduction-1-1" href="Trans-Intro-1.html#Trans-Intro-1">12.2 Introduction 1</a></li>
+    <li><a name="toc-Discussions-1" href="Discussions.html#Discussions">12.3 Discussions</a></li>
+    <li><a name="toc-Organization-1" href="Organization.html#Organization">12.4 Organization</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Central-Coordination-1" href="Central-Coordination.html#Central-Coordination">12.4.1 Central Coordination</a></li>
+      <li><a name="toc-National-Teams-1" href="National-Teams.html#National-Teams">12.4.2 National Teams</a>
+      <ul class="no-bullet">
+        <li><a name="toc-Sub_002dCultures-1" href="Sub_002dCultures.html#Sub_002dCultures">12.4.2.1 Sub-Cultures</a></li>
+        <li><a name="toc-Organizational-Ideas-1" href="Organizational-Ideas.html#Organizational-Ideas">12.4.2.2 Organizational Ideas</a></li>
+      </ul></li>
+      <li><a name="toc-Mailing-Lists-1" href="Mailing-Lists.html#Mailing-Lists">12.4.3 Mailing Lists</a></li>
+    </ul></li>
+    <li><a name="toc-Information-Flow-1" href="Information-Flow.html#Information-Flow">12.5 Information Flow</a></li>
+    <li><a name="toc-Translating-plural-forms-1" href="Translating-plural-forms.html#Translating-plural-forms">12.6 Translating plural forms</a></li>
+    <li><a name="toc-Prioritizing-messages_003a-How-to-determine-which-messages-to-translate-first" href="Prioritizing-messages.html#Prioritizing-messages">12.7 Prioritizing messages: How to determine which messages to translate first</a></li>
+  </ul></li>
+  <li><a name="toc-The-Maintainer_0027s-View" href="Maintainers.html#Maintainers">13 The Maintainer&rsquo;s View</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Flat-or-Non_002dFlat-Directory-Structures" href="Flat-and-Non_002dFlat.html#Flat-and-Non_002dFlat">13.1 Flat or Non-Flat Directory Structures</a></li>
+    <li><a name="toc-Prerequisite-Works" href="Prerequisites.html#Prerequisites">13.2 Prerequisite Works</a></li>
+    <li><a name="toc-Invoking-the-gettextize-Program" href="gettextize-Invocation.html#gettextize-Invocation">13.3 Invoking the <code>gettextize</code> Program</a></li>
+    <li><a name="toc-Files-You-Must-Create-or-Alter" href="Adjusting-Files.html#Adjusting-Files">13.4 Files You Must Create or Alter</a>
+    <ul class="no-bullet">
+      <li><a name="toc-POTFILES_002ein-in-po_002f" href="po_002fPOTFILES_002ein.html#po_002fPOTFILES_002ein">13.4.1 <samp>POTFILES.in</samp> in <samp>po/</samp></a></li>
+      <li><a name="toc-LINGUAS-in-po_002f" href="po_002fLINGUAS.html#po_002fLINGUAS">13.4.2 <samp>LINGUAS</samp> in <samp>po/</samp></a></li>
+      <li><a name="toc-Makevars-in-po_002f" href="po_002fMakevars.html#po_002fMakevars">13.4.3 <samp>Makevars</samp> in <samp>po/</samp></a></li>
+      <li><a name="toc-Extending-Makefile-in-po_002f" href="po_002fRules_002d_002a.html#po_002fRules_002d_002a">13.4.4 Extending <samp>Makefile</samp> in <samp>po/</samp></a></li>
+      <li><a name="toc-configure_002eac-at-top-level" href="configure_002eac.html#configure_002eac">13.4.5 <samp>configure.ac</samp> at top level</a></li>
+      <li><a name="toc-config_002eguess_002c-config_002esub-at-top-level" href="config_002eguess.html#config_002eguess">13.4.6 <samp>config.guess</samp>, <samp>config.sub</samp> at top level</a></li>
+      <li><a name="toc-mkinstalldirs-at-top-level" href="mkinstalldirs.html#mkinstalldirs">13.4.7 <samp>mkinstalldirs</samp> at top level</a></li>
+      <li><a name="toc-aclocal_002em4-at-top-level" href="aclocal.html#aclocal">13.4.8 <samp>aclocal.m4</samp> at top level</a></li>
+      <li><a name="toc-acconfig_002eh-at-top-level" href="acconfig.html#acconfig">13.4.9 <samp>acconfig.h</samp> at top level</a></li>
+      <li><a name="toc-config_002eh_002ein-at-top-level" href="config_002eh_002ein.html#config_002eh_002ein">13.4.10 <samp>config.h.in</samp> at top level</a></li>
+      <li><a name="toc-Makefile_002ein-at-top-level" href="Makefile.html#Makefile">13.4.11 <samp>Makefile.in</samp> at top level</a></li>
+      <li><a name="toc-Makefile_002ein-in-src_002f" href="src_002fMakefile.html#src_002fMakefile">13.4.12 <samp>Makefile.in</samp> in <samp>src/</samp></a></li>
+      <li><a name="toc-gettext_002eh-in-lib_002f" href="lib_002fgettext_002eh.html#lib_002fgettext_002eh">13.4.13 <samp>gettext.h</samp> in <samp>lib/</samp></a></li>
+    </ul></li>
+    <li><a name="toc-Autoconf-macros-for-use-in-configure_002eac" href="autoconf-macros.html#autoconf-macros">13.5 Autoconf macros for use in <samp>configure.ac</samp></a>
+    <ul class="no-bullet">
+      <li><a name="toc-AM_005fGNU_005fGETTEXT-in-gettext_002em4" href="AM_005fGNU_005fGETTEXT.html#AM_005fGNU_005fGETTEXT">13.5.1 AM_GNU_GETTEXT in <samp>gettext.m4</samp></a></li>
+      <li><a name="toc-AM_005fGNU_005fGETTEXT_005fVERSION-in-gettext_002em4" href="AM_005fGNU_005fGETTEXT_005fVERSION.html#AM_005fGNU_005fGETTEXT_005fVERSION">13.5.2 AM_GNU_GETTEXT_VERSION in <samp>gettext.m4</samp></a></li>
+      <li><a name="toc-AM_005fGNU_005fGETTEXT_005fNEED-in-gettext_002em4" href="AM_005fGNU_005fGETTEXT_005fNEED.html#AM_005fGNU_005fGETTEXT_005fNEED">13.5.3 AM_GNU_GETTEXT_NEED in <samp>gettext.m4</samp></a></li>
+      <li><a name="toc-AM_005fGNU_005fGETTEXT_005fINTL_005fSUBDIR-in-intldir_002em4" href="AM_005fGNU_005fGETTEXT_005fINTL_005fSUBDIR.html#AM_005fGNU_005fGETTEXT_005fINTL_005fSUBDIR">13.5.4 AM_GNU_GETTEXT_INTL_SUBDIR in <samp>intldir.m4</samp></a></li>
+      <li><a name="toc-AM_005fPO_005fSUBDIRS-in-po_002em4" href="AM_005fPO_005fSUBDIRS.html#AM_005fPO_005fSUBDIRS">13.5.5 AM_PO_SUBDIRS in <samp>po.m4</samp></a></li>
+      <li><a name="toc-AM_005fXGETTEXT_005fOPTION-in-po_002em4" href="AM_005fXGETTEXT_005fOPTION.html#AM_005fXGETTEXT_005fOPTION">13.5.6 AM_XGETTEXT_OPTION in <samp>po.m4</samp></a></li>
+      <li><a name="toc-AM_005fICONV-in-iconv_002em4" href="AM_005fICONV.html#AM_005fICONV">13.5.7 AM_ICONV in <samp>iconv.m4</samp></a></li>
+    </ul></li>
+    <li><a name="toc-Integrating-with-Version-Control-Systems" href="Version-Control-Issues.html#Version-Control-Issues">13.6 Integrating with Version Control Systems</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Avoiding-version-mismatch-in-distributed-development" href="Distributed-Development.html#Distributed-Development">13.6.1 Avoiding version mismatch in distributed development</a></li>
+      <li><a name="toc-Files-to-put-under-version-control" href="Files-under-Version-Control.html#Files-under-Version-Control">13.6.2 Files to put under version control</a></li>
+      <li><a name="toc-Put-PO-Files-under-Version-Control" href="Translations-under-Version-Control.html#Translations-under-Version-Control">13.6.3 Put PO Files under Version Control</a></li>
+      <li><a name="toc-Invoking-the-autopoint-Program" href="autopoint-Invocation.html#autopoint-Invocation">13.6.4 Invoking the <code>autopoint</code> Program</a>
+      <ul class="no-bullet">
+        <li><a name="toc-Options" href="autopoint-Invocation.html#Options">13.6.4.1 Options</a></li>
+        <li><a name="toc-Informative-output-15" href="autopoint-Invocation.html#Informative-output-15">13.6.4.2 Informative output</a></li>
+      </ul></li>
+    </ul></li>
+    <li><a name="toc-Creating-a-Distribution-Tarball" href="Release-Management.html#Release-Management">13.7 Creating a Distribution Tarball</a></li>
+  </ul></li>
+  <li><a name="toc-The-Installer_0027s-and-Distributor_0027s-View" href="Installers.html#Installers">14 The Installer&rsquo;s and Distributor&rsquo;s View</a></li>
+  <li><a name="toc-Other-Programming-Languages" href="Programming-Languages.html#Programming-Languages">15 Other Programming Languages</a>
+  <ul class="no-bullet">
+    <li><a name="toc-The-Language-Implementor_0027s-View" href="Language-Implementors.html#Language-Implementors">15.1 The Language Implementor&rsquo;s View</a></li>
+    <li><a name="toc-The-Programmer_0027s-View-1" href="Programmers-for-other-Languages.html#Programmers-for-other-Languages">15.2 The Programmer&rsquo;s View</a></li>
+    <li><a name="toc-The-Translator_0027s-View-1" href="Translators-for-other-Languages.html#Translators-for-other-Languages">15.3 The Translator&rsquo;s View</a>
+    <ul class="no-bullet">
+      <li><a name="toc-C-Format-Strings" href="c_002dformat.html#c_002dformat">15.3.1 C Format Strings</a></li>
+      <li><a name="toc-Objective-C-Format-Strings" href="objc_002dformat.html#objc_002dformat">15.3.2 Objective C Format Strings</a></li>
+      <li><a name="toc-Shell-Format-Strings" href="sh_002dformat.html#sh_002dformat">15.3.3 Shell Format Strings</a></li>
+      <li><a name="toc-Python-Format-Strings" href="python_002dformat.html#python_002dformat">15.3.4 Python Format Strings</a></li>
+      <li><a name="toc-Lisp-Format-Strings" href="lisp_002dformat.html#lisp_002dformat">15.3.5 Lisp Format Strings</a></li>
+      <li><a name="toc-Emacs-Lisp-Format-Strings" href="elisp_002dformat.html#elisp_002dformat">15.3.6 Emacs Lisp Format Strings</a></li>
+      <li><a name="toc-librep-Format-Strings" href="librep_002dformat.html#librep_002dformat">15.3.7 librep Format Strings</a></li>
+      <li><a name="toc-Scheme-Format-Strings" href="scheme_002dformat.html#scheme_002dformat">15.3.8 Scheme Format Strings</a></li>
+      <li><a name="toc-Smalltalk-Format-Strings" href="smalltalk_002dformat.html#smalltalk_002dformat">15.3.9 Smalltalk Format Strings</a></li>
+      <li><a name="toc-Java-Format-Strings" href="java_002dformat.html#java_002dformat">15.3.10 Java Format Strings</a></li>
+      <li><a name="toc-C_0023-Format-Strings" href="csharp_002dformat.html#csharp_002dformat">15.3.11 C# Format Strings</a></li>
+      <li><a name="toc-awk-Format-Strings" href="awk_002dformat.html#awk_002dformat">15.3.12 awk Format Strings</a></li>
+      <li><a name="toc-Object-Pascal-Format-Strings" href="object_002dpascal_002dformat.html#object_002dpascal_002dformat">15.3.13 Object Pascal Format Strings</a></li>
+      <li><a name="toc-YCP-Format-Strings" href="ycp_002dformat.html#ycp_002dformat">15.3.14 YCP Format Strings</a></li>
+      <li><a name="toc-Tcl-Format-Strings" href="tcl_002dformat.html#tcl_002dformat">15.3.15 Tcl Format Strings</a></li>
+      <li><a name="toc-Perl-Format-Strings" href="perl_002dformat.html#perl_002dformat">15.3.16 Perl Format Strings</a></li>
+      <li><a name="toc-PHP-Format-Strings" href="php_002dformat.html#php_002dformat">15.3.17 PHP Format Strings</a></li>
+      <li><a name="toc-GCC-internal-Format-Strings" href="gcc_002dinternal_002dformat.html#gcc_002dinternal_002dformat">15.3.18 GCC internal Format Strings</a></li>
+      <li><a name="toc-GFC-internal-Format-Strings" href="gfc_002dinternal_002dformat.html#gfc_002dinternal_002dformat">15.3.19 GFC internal Format Strings</a></li>
+      <li><a name="toc-Qt-Format-Strings" href="qt_002dformat.html#qt_002dformat">15.3.20 Qt Format Strings</a></li>
+      <li><a name="toc-Qt-Format-Strings-1" href="qt_002dplural_002dformat.html#qt_002dplural_002dformat">15.3.21 Qt Format Strings</a></li>
+      <li><a name="toc-KDE-Format-Strings" href="kde_002dformat.html#kde_002dformat">15.3.22 KDE Format Strings</a></li>
+      <li><a name="toc-KUIT-Format-Strings" href="kde_002dkuit_002dformat.html#kde_002dkuit_002dformat">15.3.23 KUIT Format Strings</a></li>
+      <li><a name="toc-Boost-Format-Strings" href="boost_002dformat.html#boost_002dformat">15.3.24 Boost Format Strings</a></li>
+      <li><a name="toc-Lua-Format-Strings" href="lua_002dformat.html#lua_002dformat">15.3.25 Lua Format Strings</a></li>
+      <li><a name="toc-JavaScript-Format-Strings" href="javascript_002dformat.html#javascript_002dformat">15.3.26 JavaScript Format Strings</a></li>
+    </ul></li>
+    <li><a name="toc-The-Maintainer_0027s-View-1" href="Maintainers-for-other-Languages.html#Maintainers-for-other-Languages">15.4 The Maintainer&rsquo;s View</a></li>
+    <li><a name="toc-Individual-Programming-Languages" href="List-of-Programming-Languages.html#List-of-Programming-Languages">15.5 Individual Programming Languages</a>
+    <ul class="no-bullet">
+      <li><a name="toc-C_002c-C_002b_002b_002c-Objective-C" href="C.html#C">15.5.1 C, C++, Objective C</a></li>
+      <li><a name="toc-sh-_002d-Shell-Script" href="sh.html#sh">15.5.2 sh - Shell Script</a>
+      <ul class="no-bullet">
+        <li><a name="toc-Preparing-Shell-Scripts-for-Internationalization" href="Preparing-Shell-Scripts.html#Preparing-Shell-Scripts">15.5.2.1 Preparing Shell Scripts for Internationalization</a></li>
+        <li><a name="toc-Contents-of-gettext_002esh" href="gettext_002esh.html#gettext_002esh">15.5.2.2 Contents of <code>gettext.sh</code></a></li>
+        <li><a name="toc-Invoking-the-gettext-program" href="gettext-Invocation.html#gettext-Invocation">15.5.2.3 Invoking the <code>gettext</code> program</a></li>
+        <li><a name="toc-Invoking-the-ngettext-program" href="ngettext-Invocation.html#ngettext-Invocation">15.5.2.4 Invoking the <code>ngettext</code> program</a></li>
+        <li><a name="toc-Invoking-the-envsubst-program" href="envsubst-Invocation.html#envsubst-Invocation">15.5.2.5 Invoking the <code>envsubst</code> program</a></li>
+        <li><a name="toc-Invoking-the-eval_005fgettext-function" href="eval_005fgettext-Invocation.html#eval_005fgettext-Invocation">15.5.2.6 Invoking the <code>eval_gettext</code> function</a></li>
+        <li><a name="toc-Invoking-the-eval_005fngettext-function" href="eval_005fngettext-Invocation.html#eval_005fngettext-Invocation">15.5.2.7 Invoking the <code>eval_ngettext</code> function</a></li>
+      </ul></li>
+      <li><a name="toc-bash-_002d-Bourne_002dAgain-Shell-Script" href="bash.html#bash">15.5.3 bash - Bourne-Again Shell Script</a></li>
+      <li><a name="toc-Python-1" href="Python.html#Python">15.5.4 Python</a></li>
+      <li><a name="toc-GNU-clisp-_002d-Common-Lisp" href="Common-Lisp.html#Common-Lisp">15.5.5 GNU clisp - Common Lisp</a></li>
+      <li><a name="toc-GNU-clisp-C-sources" href="clisp-C.html#clisp-C">15.5.6 GNU clisp C sources</a></li>
+      <li><a name="toc-Emacs-Lisp-1" href="Emacs-Lisp.html#Emacs-Lisp">15.5.7 Emacs Lisp</a></li>
+      <li><a name="toc-librep-1" href="librep.html#librep">15.5.8 librep</a></li>
+      <li><a name="toc-GNU-guile-_002d-Scheme" href="Scheme.html#Scheme">15.5.9 GNU guile - Scheme</a></li>
+      <li><a name="toc-GNU-Smalltalk" href="Smalltalk.html#Smalltalk">15.5.10 GNU Smalltalk</a></li>
+      <li><a name="toc-Java-1" href="Java.html#Java">15.5.11 Java</a></li>
+      <li><a name="toc-C_0023-1" href="C_0023.html#C_0023">15.5.12 C#</a></li>
+      <li><a name="toc-GNU-awk" href="gawk.html#gawk">15.5.13 GNU awk</a></li>
+      <li><a name="toc-Pascal-_002d-Free-Pascal-Compiler" href="Pascal.html#Pascal">15.5.14 Pascal - Free Pascal Compiler</a></li>
+      <li><a name="toc-wxWidgets-library" href="wxWidgets.html#wxWidgets">15.5.15 wxWidgets library</a></li>
+      <li><a name="toc-YCP-_002d-YaST2-scripting-language" href="YCP.html#YCP">15.5.16 YCP - YaST2 scripting language</a></li>
+      <li><a name="toc-Tcl-_002d-Tk_0027s-scripting-language" href="Tcl.html#Tcl">15.5.17 Tcl - Tk&rsquo;s scripting language</a></li>
+      <li><a name="toc-Perl-1" href="Perl.html#Perl">15.5.18 Perl</a>
+      <ul class="no-bullet">
+        <li><a name="toc-General-Problems-Parsing-Perl-Code" href="General-Problems.html#General-Problems">15.5.18.1 General Problems Parsing Perl Code</a></li>
+        <li><a name="toc-Which-keywords-will-xgettext-look-for_003f" href="Default-Keywords.html#Default-Keywords">15.5.18.2 Which keywords will xgettext look for?</a></li>
+        <li><a name="toc-How-to-Extract-Hash-Keys" href="Special-Keywords.html#Special-Keywords">15.5.18.3 How to Extract Hash Keys</a></li>
+        <li><a name="toc-What-are-Strings-And-Quote_002dlike-Expressions_003f" href="Quote_002dlike-Expressions.html#Quote_002dlike-Expressions">15.5.18.4 What are Strings And Quote-like Expressions?</a></li>
+        <li><a name="toc-Invalid-Uses-Of-String-Interpolation" href="Interpolation-I.html#Interpolation-I">15.5.18.5 Invalid Uses Of String Interpolation</a></li>
+        <li><a name="toc-Valid-Uses-Of-String-Interpolation" href="Interpolation-II.html#Interpolation-II">15.5.18.6 Valid Uses Of String Interpolation</a></li>
+        <li><a name="toc-When-To-Use-Parentheses" href="Parentheses.html#Parentheses">15.5.18.7 When To Use Parentheses</a></li>
+        <li><a name="toc-How-To-Grok-with-Long-Lines" href="Long-Lines.html#Long-Lines">15.5.18.8 How To Grok with Long Lines</a></li>
+        <li><a name="toc-Bugs_002c-Pitfalls_002c-And-Things-That-Do-Not-Work" href="Perl-Pitfalls.html#Perl-Pitfalls">15.5.18.9 Bugs, Pitfalls, And Things That Do Not Work</a></li>
+      </ul></li>
+      <li><a name="toc-PHP-Hypertext-Preprocessor" href="PHP.html#PHP">15.5.19 PHP Hypertext Preprocessor</a></li>
+      <li><a name="toc-Pike-1" href="Pike.html#Pike">15.5.20 Pike</a></li>
+      <li><a name="toc-GNU-Compiler-Collection-sources" href="GCC_002dsource.html#GCC_002dsource">15.5.21 GNU Compiler Collection sources</a></li>
+      <li><a name="toc-Lua-1" href="Lua.html#Lua">15.5.22 Lua</a></li>
+      <li><a name="toc-JavaScript-1" href="JavaScript.html#JavaScript">15.5.23 JavaScript</a></li>
+      <li><a name="toc-Vala-1" href="Vala.html#Vala">15.5.24 Vala</a></li>
+    </ul></li>
+    <li><a name="toc-Internationalizable-Data" href="List-of-Data-Formats.html#List-of-Data-Formats">15.6 Internationalizable Data</a>
+    <ul class="no-bullet">
+      <li><a name="toc-POT-_002d-Portable-Object-Template" href="POT.html#POT">15.6.1 POT - Portable Object Template</a></li>
+      <li><a name="toc-Resource-String-Table" href="RST.html#RST">15.6.2 Resource String Table</a></li>
+      <li><a name="toc-Glade-_002d-GNOME-user-interface-description" href="Glade.html#Glade">15.6.3 Glade - GNOME user interface description</a></li>
+      <li><a name="toc-GSettings-_002d-GNOME-user-configuration-schema" href="GSettings.html#GSettings">15.6.4 GSettings - GNOME user configuration schema</a></li>
+      <li><a name="toc-AppData-_002d-freedesktop_002eorg-application-description" href="AppData.html#AppData">15.6.5 AppData - freedesktop.org application description</a></li>
+      <li><a name="toc-Preparing-Rules-for-XML-Internationalization" href="Preparing-ITS-Rules.html#Preparing-ITS-Rules">15.6.6 Preparing Rules for XML Internationalization</a>
+      <ul class="no-bullet">
+        <li><a name="toc-Two-Use_002dcases-of-Translated-Strings-in-XML" href="Preparing-ITS-Rules.html#Two-Use_002dcases-of-Translated-Strings-in-XML">15.6.6.1 Two Use-cases of Translated Strings in XML</a></li>
+      </ul></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Concluding-Remarks" href="Conclusion.html#Conclusion">16 Concluding Remarks</a>
+  <ul class="no-bullet">
+    <li><a name="toc-History-of-GNU-gettext" href="History.html#History">16.1 History of GNU <code>gettext</code></a></li>
+    <li><a name="toc-Related-Readings" href="References.html#References">16.2 Related Readings</a></li>
+  </ul></li>
+  <li><a name="toc-Language-Codes-1" href="Language-Codes.html#Language-Codes">Appendix A Language Codes</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Usual-Language-Codes-1" href="Usual-Language-Codes.html#Usual-Language-Codes">A.1 Usual Language Codes</a></li>
+    <li><a name="toc-Rare-Language-Codes-1" href="Rare-Language-Codes.html#Rare-Language-Codes">A.2 Rare Language Codes</a></li>
+  </ul></li>
+  <li><a name="toc-Country-Codes-1" href="Country-Codes.html#Country-Codes">Appendix B Country Codes</a></li>
+  <li><a name="toc-Licenses-1" href="Licenses.html#Licenses">Appendix C Licenses</a>
+  <ul class="no-bullet">
+    <li><a name="toc-GNU-GENERAL-PUBLIC-LICENSE" href="GNU-GPL.html#GNU-GPL">C.1 GNU GENERAL PUBLIC LICENSE</a></li>
+    <li><a name="toc-GNU-LESSER-GENERAL-PUBLIC-LICENSE" href="GNU-LGPL.html#GNU-LGPL">C.2 GNU LESSER GENERAL PUBLIC LICENSE</a></li>
+    <li><a name="toc-GNU-Free-Documentation-License" href="GNU-FDL.html#GNU-FDL">C.3 GNU Free Documentation License</a></li>
+  </ul></li>
+  <li><a name="toc-Program-Index-1" href="Program-Index.html#Program-Index">Program Index</a></li>
+  <li><a name="toc-Option-Index-1" href="Option-Index.html#Option-Index">Option Index</a></li>
+  <li><a name="toc-Variable-Index-1" href="Variable-Index.html#Variable-Index">Variable Index</a></li>
+  <li><a name="toc-PO-Mode-Index-1" href="PO-Mode-Index.html#PO-Mode-Index">PO Mode Index</a></li>
+  <li><a name="toc-Autoconf-Macro-Index-1" href="Autoconf-Macro-Index.html#Autoconf-Macro-Index">Autoconf Macro Index</a></li>
+  <li><a name="toc-General-Index" href="Index.html#Index">General Index</a></li>
+</ul>
+</div>
+
+
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="Introduction.html#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="../dir/index.html" accesskey="p" rel="prev">(dir)</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Program-Index.html#Program-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="GNU-gettext-utilities"></a>
+<h1 class="top">GNU <code>gettext</code> utilities</h1>
+
+<p>This manual documents the GNU gettext tools and the GNU libintl library,
+version 0.19.8.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Introduction.html#Introduction" accesskey="1">Introduction</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Introduction
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Users.html#Users" accesskey="2">Users</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The User&rsquo;s View
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="PO-Files.html#PO-Files" accesskey="3">PO Files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Format of PO Files
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Sources.html#Sources" accesskey="4">Sources</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Preparing Program Sources
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Template.html#Template" accesskey="5">Template</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Making the PO Template File
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Creating.html#Creating" accesskey="6">Creating</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Creating a New PO File
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Updating.html#Updating" accesskey="7">Updating</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Updating Existing PO Files
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Editing.html#Editing" accesskey="8">Editing</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Editing PO Files
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Manipulating.html#Manipulating" accesskey="9">Manipulating</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Manipulating PO Files
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Binaries.html#Binaries">Binaries</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Producing Binary MO Files
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Programmers.html#Programmers">Programmers</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Programmer&rsquo;s View
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Translators.html#Translators">Translators</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Translator&rsquo;s View
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Maintainers.html#Maintainers">Maintainers</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Maintainer&rsquo;s View
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Installers.html#Installers">Installers</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Installer&rsquo;s and Distributor&rsquo;s View
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Programming-Languages.html#Programming-Languages">Programming Languages</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other Programming Languages
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Conclusion.html#Conclusion">Conclusion</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Concluding Remarks
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Language-Codes.html#Language-Codes">Language Codes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">ISO 639 language codes
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Country-Codes.html#Country-Codes">Country Codes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">ISO 3166 country codes
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Licenses.html#Licenses">Licenses</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Licenses
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Program-Index.html#Program-Index">Program Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Index of Programs
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Option-Index.html#Option-Index">Option Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Index of Command-Line Options
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Variable-Index.html#Variable-Index">Variable Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Index of Environment Variables
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="PO-Mode-Index.html#PO-Mode-Index">PO Mode Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Index of Emacs PO Mode Commands
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Autoconf-Macro-Index.html#Autoconf-Macro-Index">Autoconf Macro Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Index of Autoconf Macros
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Index.html#Index">Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">General Index
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+</pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment"> &mdash; The Detailed Node Listing &mdash;
+
+Introduction
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Why.html#Why">Why</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Purpose of GNU <code>gettext</code>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Concepts.html#Concepts">Concepts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">I18n, L10n, and Such
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Aspects.html#Aspects">Aspects</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Aspects in Native Language Support
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Files.html#Files">Files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Files Conveying Translations
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Overview.html#Overview">Overview</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Overview of GNU <code>gettext</code>
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+The User&rsquo;s View
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="System-Installation.html#System-Installation">System Installation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Questions During Operating System Installation
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Setting-the-GUI-Locale.html#Setting-the-GUI-Locale">Setting the GUI Locale</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to Specify the Locale Used by GUI Programs
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Setting-the-POSIX-Locale.html#Setting-the-POSIX-Locale">Setting the POSIX Locale</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to Specify the Locale According to POSIX
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Installing-Localizations.html#Installing-Localizations">Installing Localizations</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to Install Additional Translations
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Setting the Locale through Environment Variables
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Locale-Names.html#Locale-Names">Locale Names</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How a Locale Specification Looks Like
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Locale-Environment-Variables.html#Locale-Environment-Variables">Locale Environment Variables</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Which Environment Variable Specfies What
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-LANGUAGE-variable.html#The-LANGUAGE-variable">The LANGUAGE variable</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to Specify a Priority List of Languages
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Preparing Program Sources
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Importing.html#Importing">Importing</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Importing the <code>gettext</code> declaration
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Triggering.html#Triggering">Triggering</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Triggering <code>gettext</code> Operations
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Preparing-Strings.html#Preparing-Strings">Preparing Strings</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Preparing Translatable Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Mark-Keywords.html#Mark-Keywords">Mark Keywords</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How Marks Appear in Sources
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Marking.html#Marking">Marking</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Marking Translatable Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="c_002dformat-Flag.html#c_002dformat-Flag">c-format Flag</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Telling something about the following string
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Special-cases.html#Special-cases">Special cases</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Special Cases of Translatable Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Bug-Report-Address.html#Bug-Report-Address">Bug Report Address</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Letting Users Report Translation Bugs
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Names.html#Names">Names</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Marking Proper Names for Translation
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Libraries.html#Libraries">Libraries</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Preparing Library Sources
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Making the PO Template File
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="xgettext-Invocation.html#xgettext-Invocation">xgettext Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>xgettext</code> Program
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Creating a New PO File
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="msginit-Invocation.html#msginit-Invocation">msginit Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msginit</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Header-Entry.html#Header-Entry">Header Entry</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Filling in the Header Entry
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Updating Existing PO Files
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="msgmerge-Invocation.html#msgmerge-Invocation">msgmerge Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msgmerge</code> Program
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Editing PO Files
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="KBabel.html#KBabel">KBabel</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">KDE&rsquo;s PO File Editor
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Gtranslator.html#Gtranslator">Gtranslator</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GNOME&rsquo;s PO File Editor
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="PO-Mode.html#PO-Mode">PO Mode</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Emacs&rsquo;s PO File Editor
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Compendium.html#Compendium">Compendium</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Using Translation Compendia
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Emacs&rsquo;s PO File Editor
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Installation.html#Installation">Installation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Completing GNU <code>gettext</code> Installation
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Main-PO-Commands.html#Main-PO-Commands">Main PO Commands</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Main Commands
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Entry-Positioning.html#Entry-Positioning">Entry Positioning</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entry Positioning
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Normalizing.html#Normalizing">Normalizing</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Normalizing Strings in Entries
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Translated-Entries.html#Translated-Entries">Translated Entries</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Translated Entries
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Fuzzy-Entries.html#Fuzzy-Entries">Fuzzy Entries</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Fuzzy Entries
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Untranslated-Entries.html#Untranslated-Entries">Untranslated Entries</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Untranslated Entries
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Obsolete-Entries.html#Obsolete-Entries">Obsolete Entries</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Obsolete Entries
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Modifying-Translations.html#Modifying-Translations">Modifying Translations</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Modifying Translations
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Modifying-Comments.html#Modifying-Comments">Modifying Comments</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Modifying Comments
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Subedit.html#Subedit">Subedit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Mode for Editing Translations
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="C-Sources-Context.html#C-Sources-Context">C Sources Context</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">C Sources Context
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Auxiliary.html#Auxiliary">Auxiliary</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Consulting Auxiliary PO Files
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Using Translation Compendia
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Creating-Compendia.html#Creating-Compendia">Creating Compendia</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Merging translations for later use
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Using-Compendia.html#Using-Compendia">Using Compendia</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Using older translations if they fit
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Manipulating PO Files
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="msgcat-Invocation.html#msgcat-Invocation">msgcat Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msgcat</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="msgconv-Invocation.html#msgconv-Invocation">msgconv Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msgconv</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="msggrep-Invocation.html#msggrep-Invocation">msggrep Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msggrep</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="msgfilter-Invocation.html#msgfilter-Invocation">msgfilter Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msgfilter</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="msguniq-Invocation.html#msguniq-Invocation">msguniq Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msguniq</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="msgcomm-Invocation.html#msgcomm-Invocation">msgcomm Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msgcomm</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="msgcmp-Invocation.html#msgcmp-Invocation">msgcmp Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msgcmp</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="msgattrib-Invocation.html#msgattrib-Invocation">msgattrib Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msgattrib</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="msgen-Invocation.html#msgen-Invocation">msgen Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msgen</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="msgexec-Invocation.html#msgexec-Invocation">msgexec Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msgexec</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Colorizing.html#Colorizing">Colorizing</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Highlighting parts of PO files
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="libgettextpo.html#libgettextpo">libgettextpo</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Writing your own programs that process PO files
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Highlighting parts of PO files
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="The-_002d_002dcolor-option.html#The-_002d_002dcolor-option">The --color option</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Triggering colorized output
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-TERM-variable.html#The-TERM-variable">The TERM variable</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The environment variable <code>TERM</code>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-_002d_002dstyle-option.html#The-_002d_002dstyle-option">The --style option</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The <code>--style</code> option
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Style-rules.html#Style-rules">Style rules</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Style rules for PO files
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Customizing-less.html#Customizing-less">Customizing less</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Customizing <code>less</code> for viewing PO files
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Producing Binary MO Files
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="msgfmt-Invocation.html#msgfmt-Invocation">msgfmt Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msgfmt</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="msgunfmt-Invocation.html#msgunfmt-Invocation">msgunfmt Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>msgunfmt</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="MO-Files.html#MO-Files">MO Files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Format of GNU MO Files
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+The Programmer&rsquo;s View
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="catgets.html#catgets">catgets</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">About <code>catgets</code>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="gettext.html#gettext">gettext</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">About <code>gettext</code>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Comparison.html#Comparison">Comparison</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Comparing the two interfaces
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Using-libintl_002ea.html#Using-libintl_002ea">Using libintl.a</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Using libintl.a in own programs
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="gettext-grok.html#gettext-grok">gettext grok</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Being a <code>gettext</code> grok
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Temp-Programmers.html#Temp-Programmers">Temp Programmers</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Temporary Notes for the Programmers Chapter
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+About <code>catgets</code>
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Interface-to-catgets.html#Interface-to-catgets">Interface to catgets</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The interface
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Problems-with-catgets.html#Problems-with-catgets">Problems with catgets</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Problems with the <code>catgets</code> interface?!
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+About <code>gettext</code>
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Interface-to-gettext.html#Interface-to-gettext">Interface to gettext</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The interface
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Ambiguities.html#Ambiguities">Ambiguities</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Solving ambiguities
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Locating-Catalogs.html#Locating-Catalogs">Locating Catalogs</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Locating message catalog files
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Charset-conversion.html#Charset-conversion">Charset conversion</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to request conversion to Unicode
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Contexts.html#Contexts">Contexts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Solving ambiguities in GUI programs
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Plural-forms.html#Plural-forms">Plural forms</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Additional functions for handling plurals
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Optimized-gettext.html#Optimized-gettext">Optimized gettext</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Optimization of the *gettext functions
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Temporary Notes for the Programmers Chapter
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Temp-Implementations.html#Temp-Implementations">Temp Implementations</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Temporary - Two Possible Implementations
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Temp-catgets.html#Temp-catgets">Temp catgets</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Temporary - About <code>catgets</code>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Temp-WSI.html#Temp-WSI">Temp WSI</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Temporary - Why a single implementation
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Temp-Notes.html#Temp-Notes">Temp Notes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Temporary - Notes
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+The Translator&rsquo;s View
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Trans-Intro-0.html#Trans-Intro-0">Trans Intro 0</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Introduction 0
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Trans-Intro-1.html#Trans-Intro-1">Trans Intro 1</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Introduction 1
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Discussions.html#Discussions">Discussions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Discussions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Organization.html#Organization">Organization</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Organization
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Information-Flow.html#Information-Flow">Information Flow</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Information Flow
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Translating-plural-forms.html#Translating-plural-forms">Translating plural forms</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to fill in <code>msgstr[0]</code>, <code>msgstr[1]</code>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Prioritizing-messages.html#Prioritizing-messages">Prioritizing messages</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to find which messages to translate first
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Organization
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Central-Coordination.html#Central-Coordination">Central Coordination</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Central Coordination
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="National-Teams.html#National-Teams">National Teams</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">National Teams
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Mailing-Lists.html#Mailing-Lists">Mailing Lists</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Mailing Lists
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+National Teams
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Sub_002dCultures.html#Sub_002dCultures">Sub-Cultures</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Sub-Cultures
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Organizational-Ideas.html#Organizational-Ideas">Organizational Ideas</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Organizational Ideas
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+The Maintainer&rsquo;s View
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Flat-and-Non_002dFlat.html#Flat-and-Non_002dFlat">Flat and Non-Flat</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Flat or Non-Flat Directory Structures
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Prerequisites.html#Prerequisites">Prerequisites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Prerequisite Works
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="gettextize-Invocation.html#gettextize-Invocation">gettextize Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>gettextize</code> Program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Adjusting-Files.html#Adjusting-Files">Adjusting Files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Files You Must Create or Alter
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="autoconf-macros.html#autoconf-macros">autoconf macros</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Autoconf macros for use in <samp>configure.ac</samp>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Version-Control-Issues.html#Version-Control-Issues">Version Control Issues</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Release-Management.html#Release-Management">Release Management</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Creating a Distribution Tarball
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Files You Must Create or Alter
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="po_002fPOTFILES_002ein.html#po_002fPOTFILES_002ein">po/POTFILES.in</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><samp>POTFILES.in</samp> in <samp>po/</samp>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="po_002fLINGUAS.html#po_002fLINGUAS">po/LINGUAS</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><samp>LINGUAS</samp> in <samp>po/</samp>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="po_002fMakevars.html#po_002fMakevars">po/Makevars</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><samp>Makevars</samp> in <samp>po/</samp>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="po_002fRules_002d_002a.html#po_002fRules_002d_002a">po/Rules-*</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Extending <samp>Makefile</samp> in <samp>po/</samp>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="configure_002eac.html#configure_002eac">configure.ac</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><samp>configure.ac</samp> at top level
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="config_002eguess.html#config_002eguess">config.guess</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><samp>config.guess</samp>, <samp>config.sub</samp> at top level
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mkinstalldirs.html#mkinstalldirs">mkinstalldirs</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><samp>mkinstalldirs</samp> at top level
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="aclocal.html#aclocal">aclocal</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><samp>aclocal.m4</samp> at top level
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="acconfig.html#acconfig">acconfig</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><samp>acconfig.h</samp> at top level
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="config_002eh_002ein.html#config_002eh_002ein">config.h.in</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><samp>config.h.in</samp> at top level
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Makefile.html#Makefile">Makefile</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><samp>Makefile.in</samp> at top level
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="src_002fMakefile.html#src_002fMakefile">src/Makefile</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><samp>Makefile.in</samp> in <samp>src/</samp>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lib_002fgettext_002eh.html#lib_002fgettext_002eh">lib/gettext.h</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><samp>gettext.h</samp> in <samp>lib/</samp>
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Autoconf macros for use in <samp>configure.ac</samp>
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="AM_005fGNU_005fGETTEXT.html#AM_005fGNU_005fGETTEXT">AM_GNU_GETTEXT</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">AM_GNU_GETTEXT in <samp>gettext.m4</samp>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="AM_005fGNU_005fGETTEXT_005fVERSION.html#AM_005fGNU_005fGETTEXT_005fVERSION">AM_GNU_GETTEXT_VERSION</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">AM_GNU_GETTEXT_VERSION in <samp>gettext.m4</samp>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="AM_005fGNU_005fGETTEXT_005fNEED.html#AM_005fGNU_005fGETTEXT_005fNEED">AM_GNU_GETTEXT_NEED</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">AM_GNU_GETTEXT_NEED in <samp>gettext.m4</samp>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="AM_005fGNU_005fGETTEXT_005fINTL_005fSUBDIR.html#AM_005fGNU_005fGETTEXT_005fINTL_005fSUBDIR">AM_GNU_GETTEXT_INTL_SUBDIR</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">AM_GNU_GETTEXT_INTL_SUBDIR in <samp>intldir.m4</samp>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="AM_005fPO_005fSUBDIRS.html#AM_005fPO_005fSUBDIRS">AM_PO_SUBDIRS</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">AM_PO_SUBDIRS in <samp>po.m4</samp>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="AM_005fXGETTEXT_005fOPTION.html#AM_005fXGETTEXT_005fOPTION">AM_XGETTEXT_OPTION</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">AM_XGETTEXT_OPTION in <samp>po.m4</samp>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="AM_005fICONV.html#AM_005fICONV">AM_ICONV</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">AM_ICONV in <samp>iconv.m4</samp>
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Integrating with Version Control Systems
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Distributed-Development.html#Distributed-Development">Distributed Development</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Avoiding version mismatch in distributed development
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Files-under-Version-Control.html#Files-under-Version-Control">Files under Version Control</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Files to put under version control
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Translations-under-Version-Control.html#Translations-under-Version-Control">Translations under Version Control</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Put PO Files under Version Control
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="autopoint-Invocation.html#autopoint-Invocation">autopoint Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>autopoint</code> Program
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Other Programming Languages
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Language-Implementors.html#Language-Implementors">Language Implementors</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Language Implementor&rsquo;s View
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Programmers-for-other-Languages.html#Programmers-for-other-Languages">Programmers for other Languages</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Programmer&rsquo;s View
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Translators-for-other-Languages.html#Translators-for-other-Languages">Translators for other Languages</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Translator&rsquo;s View
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Maintainers-for-other-Languages.html#Maintainers-for-other-Languages">Maintainers for other Languages</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Maintainer&rsquo;s View
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="List-of-Programming-Languages.html#List-of-Programming-Languages">List of Programming Languages</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Individual Programming Languages
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="List-of-Data-Formats.html#List-of-Data-Formats">List of Data Formats</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Internationalizable Data
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+The Translator&rsquo;s View
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="c_002dformat.html#c_002dformat">c-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">C Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="objc_002dformat.html#objc_002dformat">objc-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Objective C Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="sh_002dformat.html#sh_002dformat">sh-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Shell Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="python_002dformat.html#python_002dformat">python-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Python Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lisp_002dformat.html#lisp_002dformat">lisp-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Lisp Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="elisp_002dformat.html#elisp_002dformat">elisp-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Emacs Lisp Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="librep_002dformat.html#librep_002dformat">librep-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">librep Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="scheme_002dformat.html#scheme_002dformat">scheme-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Scheme Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="smalltalk_002dformat.html#smalltalk_002dformat">smalltalk-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Smalltalk Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="java_002dformat.html#java_002dformat">java-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Java Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="csharp_002dformat.html#csharp_002dformat">csharp-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">C# Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="awk_002dformat.html#awk_002dformat">awk-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">awk Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="object_002dpascal_002dformat.html#object_002dpascal_002dformat">object-pascal-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Object Pascal Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="ycp_002dformat.html#ycp_002dformat">ycp-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">YCP Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="tcl_002dformat.html#tcl_002dformat">tcl-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Tcl Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="perl_002dformat.html#perl_002dformat">perl-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Perl Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="php_002dformat.html#php_002dformat">php-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">PHP Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="gcc_002dinternal_002dformat.html#gcc_002dinternal_002dformat">gcc-internal-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GCC internal Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="gfc_002dinternal_002dformat.html#gfc_002dinternal_002dformat">gfc-internal-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GFC internal Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="qt_002dformat.html#qt_002dformat">qt-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Qt Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="qt_002dplural_002dformat.html#qt_002dplural_002dformat">qt-plural-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Qt Plural Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="kde_002dformat.html#kde_002dformat">kde-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">KDE Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="boost_002dformat.html#boost_002dformat">boost-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Boost Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lua_002dformat.html#lua_002dformat">lua-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Lua Format Strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="javascript_002dformat.html#javascript_002dformat">javascript-format</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">JavaScript Format Strings
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Individual Programming Languages
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="C.html#C">C</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">C, C++, Objective C
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="sh.html#sh">sh</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">sh - Shell Script
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="bash.html#bash">bash</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">bash - Bourne-Again Shell Script
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Python.html#Python">Python</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Python
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Common-Lisp.html#Common-Lisp">Common Lisp</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GNU clisp - Common Lisp
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="clisp-C.html#clisp-C">clisp C</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GNU clisp C sources
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Emacs-Lisp.html#Emacs-Lisp">Emacs Lisp</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Emacs Lisp
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="librep.html#librep">librep</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">librep
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Scheme.html#Scheme">Scheme</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GNU guile - Scheme
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Smalltalk.html#Smalltalk">Smalltalk</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GNU Smalltalk
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Java.html#Java">Java</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Java
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="C_0023.html#C_0023">C#</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">C#
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="gawk.html#gawk">gawk</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GNU awk
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Pascal.html#Pascal">Pascal</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Pascal - Free Pascal Compiler
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="wxWidgets.html#wxWidgets">wxWidgets</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">wxWidgets library
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="YCP.html#YCP">YCP</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">YCP - YaST2 scripting language
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Tcl.html#Tcl">Tcl</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Tcl - Tk&rsquo;s scripting language
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Perl.html#Perl">Perl</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Perl
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="PHP.html#PHP">PHP</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">PHP Hypertext Preprocessor
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Pike.html#Pike">Pike</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Pike
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="GCC_002dsource.html#GCC_002dsource">GCC-source</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GNU Compiler Collection sources
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Lua.html#Lua">Lua</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Lua
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="JavaScript.html#JavaScript">JavaScript</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">JavaScript
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Vala.html#Vala">Vala</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Vala
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+sh - Shell Script
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Preparing-Shell-Scripts.html#Preparing-Shell-Scripts">Preparing Shell Scripts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Preparing Shell Scripts for Internationalization
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="gettext_002esh.html#gettext_002esh">gettext.sh</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Contents of <code>gettext.sh</code>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="gettext-Invocation.html#gettext-Invocation">gettext Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>gettext</code> program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="ngettext-Invocation.html#ngettext-Invocation">ngettext Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>ngettext</code> program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="envsubst-Invocation.html#envsubst-Invocation">envsubst Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>envsubst</code> program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="eval_005fgettext-Invocation.html#eval_005fgettext-Invocation">eval_gettext Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>eval_gettext</code> function
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="eval_005fngettext-Invocation.html#eval_005fngettext-Invocation">eval_ngettext Invocation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invoking the <code>eval_ngettext</code> function
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Perl
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="General-Problems.html#General-Problems">General Problems</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">General Problems Parsing Perl Code
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Default-Keywords.html#Default-Keywords">Default Keywords</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Which Keywords Will xgettext Look For?
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Special-Keywords.html#Special-Keywords">Special Keywords</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to Extract Hash Keys
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Quote_002dlike-Expressions.html#Quote_002dlike-Expressions">Quote-like Expressions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What are Strings And Quote-like Expressions?
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Interpolation-I.html#Interpolation-I">Interpolation I</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Invalid String Interpolation
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Interpolation-II.html#Interpolation-II">Interpolation II</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Valid String Interpolation
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Parentheses.html#Parentheses">Parentheses</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">When To Use Parentheses
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Long-Lines.html#Long-Lines">Long Lines</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How To Grok with Long Lines
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Perl-Pitfalls.html#Perl-Pitfalls">Perl Pitfalls</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Bugs, Pitfalls, and Things That Do Not Work
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Internationalizable Data
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="POT.html#POT">POT</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">POT - Portable Object Template
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="RST.html#RST">RST</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Resource String Table
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Glade.html#Glade">Glade</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Glade - GNOME user interface description
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="GSettings.html#GSettings">GSettings</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GSettings - GNOME user configuration schema
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="AppData.html#AppData">AppData</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">AppData - freedesktop.org application description
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Preparing-ITS-Rules.html#Preparing-ITS-Rules">Preparing ITS Rules</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Preparing Rules for XML Internationalization
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Concluding Remarks
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="History.html#History">History</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">History of GNU <code>gettext</code>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="References.html#References">References</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Related Readings
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Language Codes
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Usual-Language-Codes.html#Usual-Language-Codes">Usual Language Codes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Two-letter ISO 639 language codes
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Rare-Language-Codes.html#Rare-Language-Codes">Rare Language Codes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Three-letter ISO 639 language codes
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Licenses
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="GNU-GPL.html#GNU-GPL">GNU GPL</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GNU General Public License
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="GNU-LGPL.html#GNU-LGPL">GNU LGPL</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GNU Lesser General Public License
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="GNU-FDL.html#GNU-FDL">GNU FDL</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GNU Free Documentation License
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+</pre></th></tr></table>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Introduction.html#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="../dir/index.html" accesskey="p" rel="prev">(dir)</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Program-Index.html#Program-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
 </html>
